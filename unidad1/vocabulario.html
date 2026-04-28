@@ -1,1 +1,46 @@
-<h1>Unidad 1</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 1 - El abecedario</title>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<h1>El abecedario</h1>
+
+<div class="instruccion">
+    <p>Escucha las letras del alfabeto y repite.</p>
+
+    <div class="banderas">
+        <img src="img/es.png" onclick="playAudio('es')" alt="Español">
+        <img src="img/en.png" onclick="playAudio('en')" alt="Inglés">
+        <img src="img/fr.png" onclick="playAudio('fr')" alt="Francés">
+        <img src="img/ru.avif" onclick="playAudio('ru')" alt="Ruso">
+    </div>
+</div>
+
+<div class="imagen-grande">
+    <img src="img/alfabeto.png" alt="Abecedario">
+</div>
+
+<!-- AUDIO INSTRUCCIONES (OCULTOS) -->
+<audio id="es" src="audio/instruccion_1_es.mp3"></audio>
+<audio id="en" src="audio/instruccion_1_en.mp3"></audio>
+<audio id="fr" src="audio/instruccion_1_fr.mp3"></audio>
+<audio id="ru" src="audio/instruccion_1_ru.mp3"></audio>
+
+<!-- AUDIO PRINCIPAL (VISIBLE) -->
+<div class="audio-principal">
+    <audio controls>
+        <source src="audio/alfabeto_es.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script src="../script.js"></script>
+
+</body>
+</html>
