@@ -26,8 +26,17 @@ h1 {
 .bloque {
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    text-decoration: none; /* añadido */
-    color: white; /* añadido */
+    text-decoration: none;
+    color: white;
+}
+
+/* 🔥 BLOQUEAR TODOS LOS ESTADOS DEL LINK */
+.bloque:visited,
+.bloque:active,
+.bloque:hover,
+.bloque:focus {
+    color: white;
+    text-decoration: none;
 }
 
 /* EFECTO HOVER */
@@ -40,12 +49,14 @@ h1 {
     margin: 0;
     font-size: 0.9em;
     opacity: 0.8;
+    color: white;
 }
 
 .unidad-titulo {
     margin: 5px 0 10px 0;
     font-size: 1em;
     font-weight: bold;
+    color: white;
 }
 
 /* IMÁGENES */
@@ -73,7 +84,6 @@ h1 {
     }
 
     .bloque img {
-        height: 180px; /* ligeramente mayor en móvil */
+        height: 180px;
     }
 }
-
