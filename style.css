@@ -43,20 +43,26 @@ h1 {
 .bloque:hover {
     transform: scale(1.05);
 }
-/* NAV SUPERIOR */
+
+/* ========================= */
+/* 🔥 NAV SUPERIOR LIMPIO */
+/* ========================= */
+
 .nav-superior {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 15px 20px;
+    margin-top: 10px;
 }
 
-/* TÍTULO CENTRADO */
 .titulo {
     text-align: center;
 }
 
-/* TEXTO UNIDAD */
+.titulo h1 {
+    margin: 5px 0;
+}
+
 .unidad {
     margin: 0;
     font-size: 0.9em;
@@ -64,64 +70,14 @@ h1 {
 }
 
 /* BOTONES */
-.boton-nav {
-    background: rgba(255,255,255,0.2);
-    padding: 8px 15px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-/* HOVER BOTÓN */
-.boton-nav:hover {
-    background: rgba(255,255,255,0.4);
-}
-/* TEXTOS */
-.unidad-numero {
-    margin: 0;
-    font-size: 0.9em;
-    opacity: 0.8;
-    color: white;
-}
-
-.unidad-titulo {
-    margin: 5px 0 10px 0;
-    font-size: 1em;
-    font-weight: bold;
-    color: white;
-}
-
-/* IMÁGENES TARJETAS */
-.bloque img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 4px solid white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-/* CONTENEDOR SUPERIOR */
-.nav-superior {
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* TÍTULO */
-.titulo h1 {
-    margin: 5px 0;
-}
-
-/* BOTONES LATERALES */
 .nav-botones {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    width: 100%;
+    max-width: 600px;
     margin-top: 10px;
 }
 
-/* BOTONES */
 .boton-nav {
     background: rgba(255,255,255,0.2);
     padding: 8px 15px;
@@ -132,7 +88,6 @@ h1 {
     transition: 0.2s;
 }
 
-/* HOVER */
 .boton-nav:hover {
     background: rgba(255,255,255,0.4);
 }
@@ -165,7 +120,6 @@ h1 {
     margin-top: 10px;
 }
 
-/* CADA BANDERA */
 .banderas .flag {
     position: relative;
     cursor: pointer;
@@ -174,7 +128,6 @@ h1 {
     flex: none;
 }
 
-/* IMAGEN BANDERA */
 .banderas .flag img {
     width: 100%;
     height: 100%;
@@ -184,44 +137,24 @@ h1 {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* HOVER */
 .banderas .flag:hover img {
     transform: scale(1.1);
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* ICONO AUDIO */
 .flag span {
     position: absolute;
     bottom: -8px;
     right: -5px;
     font-size: 16px;
-}
-.flag span {
     pointer-events: none;
 }
 
-/* CLICK */
 .flag:active {
     transform: scale(0.95);
 }
 
-/* IMAGEN GRANDE */
-.imagen-grande {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-}
-
-.imagen-grande img {
-    width: 85%;
-    max-width: 700px;
-    border-radius: 20px;
-    border: 4px solid white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* AUDIO PRINCIPAL */
+/* AUDIO */
 .audio-principal {
     margin: 20px auto;
     width: 80%;
@@ -232,6 +165,7 @@ audio {
     width: 100%;
 }
 
+/* EJEMPLOS */
 .ejemplos {
     margin: 30px auto;
     max-width: 800px;
@@ -239,12 +173,21 @@ audio {
     font-size: 16px;
 }
 
+/* GRID ACTIVIDADES */
 .grid-ejercicios {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 20px;
 }
+
+/* TARJETAS EJERCICIO (NUEVO) */
+.ejercicio {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 20px;
+}
+
 /* ========================= */
 /* 📱 RESPONSIVE */
 /* ========================= */
@@ -255,15 +198,18 @@ audio {
         font-size: 2em;
         padding: 20px;
     }
-.nav-superior {
-    flex-direction: column;
-    gap: 10px;
-}
+
+    .nav-superior {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .nav-botones {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-}
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
     .contenedor-unidades {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
@@ -273,7 +219,8 @@ audio {
     .bloque img {
         height: 180px;
     }
-.grid-ejercicios {
-    grid-template-columns: repeat(2, 1fr);
-}
+
+    .grid-ejercicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
