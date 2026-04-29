@@ -154,11 +154,14 @@ audio {
 }
 
 /* GRID EJERCICIOS */
+
 .grid-ejercicios {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 20px;
+    gap: 20px; /* antes 30px */
+    padding: 10px;
+    max-width: 900px;
+    margin: auto;
 }
 
 /* ========================= */
@@ -178,6 +181,15 @@ audio {
 
     .grid-ejercicios {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .ejercicio img {
+        width: 70px; /* aún más pequeño en móvil */
+    }
+
+    .palabra {
+        font-size: 18px;
     }
 
     .nav-botones {
