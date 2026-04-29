@@ -50,9 +50,16 @@ h1 {
 
 .nav-superior {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    padding: 15px 20px;
+}
+
+.titulo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
 
 .titulo {
@@ -201,7 +208,12 @@ audio {
 
     .nav-superior {
         flex-direction: column;
-        gap: 10px;
+        position: relative;
+    }
+
+    .titulo {
+        position: static;
+        transform: none;
     }
 
     .nav-botones {
@@ -210,11 +222,6 @@ audio {
         align-items: center;
     }
 
-    .contenedor-unidades {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        padding: 15px;
-    }
 
     .bloque img {
         height: 180px;
@@ -223,4 +230,6 @@ audio {
     .grid-ejercicios {
         grid-template-columns: repeat(2, 1fr);
     }
+
+
 }
