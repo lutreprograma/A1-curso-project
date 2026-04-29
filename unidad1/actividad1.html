@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 1 - Sonidos difíciles</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* BLOQUE ACTIVIDAD */
+.ejercicio {
+    margin: 40px 0;
+}
+
+.ejercicio img {
+    width: 120px;
+    cursor: pointer;
+}
+
+/* PALABRA */
+.palabra {
+    font-size: 28px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* OPCIONES */
+.opciones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.opcion {
+    background: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ESTADOS */
+.correcto {
+    background: #2ecc71 !important;
+    color: white;
+}
+
+.incorrecto {
+    background: #e74c3c !important;
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav-superior">
+    <div class="titulo">
+        <p class="unidad">Unidad 1</p>
+        <h1>Sonidos difíciles</h1>
+    </div>
+
+    <div class="nav-botones">
+        <a href="vocabulario.html" class="boton-nav">← Volver</a>
+        <a href="#" class="boton-nav">Siguiente →</a>
+    </div>
+</div>
+
+<!-- INSTRUCCIÓN -->
+<p>
+Observa las diferencias entre el sonido ka y za y completa con las letras c, z o qu.
+</p>
+
+<!-- AUDIO GENERAL -->
+<div class="audio-principal">
+    <audio controls>
+        <source src="audio/actividad1_es.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<!-- ========================= -->
+<!-- EJERCICIOS -->
+<!-- ========================= -->
+
+<!-- CASA -->
+<div class="ejercicio">
+    <img src="img/casa.png" onclick="playWord('casa')">
+
+    <div class="palabra" id="palabra-casa">__sa</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('ca','casa','palabra-casa', this)">CA</div>
+        <div class="opcion" onclick="check('za','casa','palabra-casa', this)">ZA</div>
+        <div class="opcion" onclick="check('que','casa','palabra-casa', this)">QUE</div>
+    </div>
+</div>
+
+<!-- CEREZA -->
+<div class="ejercicio">
+    <img src="img/cereza.png" onclick="playWord('cereza')">
+
+    <div class="palabra" id="palabra-cereza">__reza</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('ce','cereza','palabra-cereza', this)">CE</div>
+        <div class="opcion" onclick="check('se','cereza','palabra-cereza', this)">SE</div>
+        <div class="opcion" onclick="check('que','cereza','palabra-cereza', this)">QUE</div>
+    </div>
+</div>
+
+<!-- QUESO -->
+<div class="ejercicio">
+    <img src="img/queso.png" onclick="playWord('queso')">
+
+    <div class="palabra" id="palabra-queso">__eso</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('que','queso','palabra-queso', this)">QUE</div>
+        <div class="opcion" onclick="check('ce','queso','palabra-queso', this)">CE</div>
+        <div class="opcion" onclick="check('ka','queso','palabra-queso', this)">KA</div>
+    </div>
+</div>
+
+<!-- MANTEQUILLA -->
+<div class="ejercicio">
+    <img src="img/mantequilla.png" onclick="playWord('mantequilla')">
+
+    <div class="palabra" id="palabra-mantequilla">mante__illa</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('qu','mantequilla','palabra-mantequilla', this)">QU</div>
+        <div class="opcion" onclick="check('c','mantequilla','palabra-mantequilla', this)">C</div>
+        <div class="opcion" onclick="check('z','mantequilla','palabra-mantequilla', this)">Z</div>
+    </div>
+</div>
+
+<!-- ZUMO -->
+<div class="ejercicio">
+    <img src="img/zumo.png" onclick="playWord('zumo')">
+
+    <div class="palabra" id="palabra-zumo">__umo</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('zu','zumo','palabra-zumo', this)">ZU</div>
+        <div class="opcion" onclick="check('su','zumo','palabra-zumo', this)">SU</div>
+        <div class="opcion" onclick="check('cu','zumo','palabra-zumo', this)">CU</div>
+    </div>
+</div>
+
+<!-- ========================= -->
+
+<!-- AUDIOS -->
+<audio id="audio-casa" src="audio/casa_es.mp3"></audio>
+<audio id="audio-cereza" src="audio/cereza_es.mp3"></audio>
+<audio id="audio-queso" src="audio/queso_es.mp3"></audio>
+<audio id="audio-mantequilla" src="audio/mantequilla_es.mp3"></audio>
+<audio id="audio-zumo" src="audio/zumo_es.mp3"></audio>
+
+<!-- BOTÓN INICIO -->
+<div class="inicio">
+    <a href="../index.html">🏠</a>
+</div>
+
+<script>
+
+/* AUDIO POR IMAGEN */
+function playWord(word){
+    document.getElementById("audio-" + word).play();
+}
+
+/* VALIDACIÓN */
+function check(opcion, correcta, palabraId, elemento){
+
+    if(opcion === correcta.substring(0, opcion.length)){
+        elemento.classList.add("correcto");
+
+        // completar palabra
+        document.getElementById(palabraId).innerText = correcta;
+    } else {
+        elemento.classList.add("incorrecto");
+    }
+}
+
+</script>
+
+</body>
+</html>
