@@ -1,10 +1,16 @@
 /* RESET BÁSICO */
+html {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #8e44ad, #3498db, #6c3483);
     color: white;
     text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* TÍTULO */
@@ -110,8 +116,11 @@ h1 {
 .banderas {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
     margin-top: 10px;
+    flex-wrap: wrap; /* 🔥 CLAVE */
+    max-width: 100%;
 }
 
 .banderas .flag {
@@ -138,7 +147,7 @@ h1 {
 /* AUDIO */
 .audio-principal {
     margin: 20px auto;
-    width: 80%;
+    width: 90%;
     max-width: 500px;
 }
 
@@ -159,6 +168,7 @@ audio {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 20px;
+    max-width: 100%; /* 👈 AÑADIR AQUÍ */
 }
 
 /* ========================= */
