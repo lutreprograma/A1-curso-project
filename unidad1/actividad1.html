@@ -66,14 +66,42 @@
 
     <div class="nav-botones">
         <a href="vocabulario.html" class="boton-nav">← Volver</a>
-        <a href="#" class="boton-nav">Siguiente →</a>
+        <a href="vocabulario2.html" class="boton-nav">Siguiente →</a>
     </div>
 </div>
 
-<!-- INSTRUCCIÓN -->
-<p>
-Observa las diferencias entre el sonido ka y za y completa con las letras c, z o qu.
-</p>
+<div class="instruccion">
+    <p>Observa las diferencias entre el sonido ka y za y completa con las letras c, z o qu.</p>
+
+    <div class="banderas">
+        <div class="flag" onclick="playAudio('es')">
+            <img src="img/es.png"><span>🔊</span>
+        </div>
+
+        <div class="flag" onclick="playAudio('en')">
+            <img src="img/en.png"><span>🔊</span>
+        </div>
+
+        <div class="flag" onclick="playAudio('fr')">
+            <img src="img/fr.png"><span>🔊</span>
+        </div>
+
+        <div class="flag" onclick="playAudio('ru')">
+            <img src="img/ru.avif"><span>🔊</span>
+        </div>
+
+        <div class="flag" onclick="playAudio('ar')">
+            <img src="img/ar.png"><span>🔊</span>
+        </div>
+    </div>
+</div>
+
+<!-- AUDIOS INSTRUCCIÓN -->
+<audio id="es" src="audio/instruccion_2_es.mp3"></audio>
+<audio id="en" src="audio/instruccion_2_en.mp3"></audio>
+<audio id="fr" src="audio/instruccion_2_fr.mp3"></audio>
+<audio id="ru" src="audio/instruccion_2_ru.mp3"></audio>
+<audio id="ar" src="audio/instruccion_2_ar.mp3"></audio>
 
 <!-- AUDIO GENERAL -->
 <div class="audio-principal">
@@ -81,12 +109,24 @@ Observa las diferencias entre el sonido ka y za y completa con las letras c, z o
         <source src="audio/actividad1_es.mp3" type="audio/mpeg">
     </audio>
 </div>
+<!-- ACTIVIDAD1 -->
+<div class="ejemplos">
 
+<p>
+Ca: casa, caballo, pecado. &nbsp;&nbsp;&nbsp;&nbsp; Za: zapato, choza, zanahoria.<br>
+Co: comer, coche, coco. &nbsp;&nbsp;&nbsp;&nbsp; Zo: zorro, lazo, almuerzo.<br>
+Cu: cubo, cuchara, vacuna. &nbsp;&nbsp;&nbsp;&nbsp; Zu: zumo, azúcar, azulejo.<br>
+Que: queso, querer, paquete. &nbsp;&nbsp;&nbsp;&nbsp; Ce: cedro, cepillo, cacerola.<br>
+Qui: quitar, química, máquina. &nbsp;&nbsp;&nbsp;&nbsp; Ci: cine, ciruela, cecina.
+</p>
+
+</div>
 <!-- ========================= -->
 <!-- EJERCICIOS -->
 <!-- ========================= -->
 
 <!-- CASA -->
+<div class="grid-ejercicios">
 <div class="ejercicio">
     <img src="img/casa.png" onclick="playWord('casa')">
 
@@ -175,10 +215,8 @@ function playWord(word){
 /* VALIDACIÓN */
 function check(opcion, correcta, palabraId, elemento){
 
-    if(opcion === correcta.substring(0, opcion.length)){
+    if(correcta.includes(opcion)){
         elemento.classList.add("correcto");
-
-        // completar palabra
         document.getElementById(palabraId).innerText = correcta;
     } else {
         elemento.classList.add("incorrecto");
