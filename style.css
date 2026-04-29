@@ -118,9 +118,9 @@ h1 {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 10px;
-    flex-wrap: wrap; /* 🔥 CLAVE */
-    max-width: 100%;
+    margin: 20px 0; /* 🔥 CAMBIO IMPORTANTE */
+    flex-wrap: wrap;
+    max-width: 100%; /* 👍 puede quedarse */
 }
 
 .banderas .flag {
@@ -146,13 +146,16 @@ h1 {
 
 /* AUDIO */
 .audio-principal {
-    margin: 20px auto;
+    margin: 25px auto; /* 🔥 más separación */
     width: 90%;
     max-width: 500px;
 }
 
 audio {
     width: 100%;
+}
+.instruccion {
+    margin: 20px 0;
 }
 
 /* EJEMPLOS */
@@ -195,4 +198,15 @@ audio {
         gap: 10px;
         align-items: center;
     }
+    .banderas {
+    margin: 15px 0;
+}
+
+.audio-principal {
+    margin: 20px auto;
+}
+
+.instruccion {
+    padding: 0 10px;
+}
 }
