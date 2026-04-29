@@ -232,6 +232,19 @@ audio {
     width: 100%;
 }
 
+.ejemplos {
+    margin: 30px auto;
+    max-width: 800px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.grid-ejercicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
 /* ========================= */
 /* 📱 RESPONSIVE */
 /* ========================= */
@@ -260,4 +273,7 @@ audio {
     .bloque img {
         height: 180px;
     }
+.grid-ejercicios {
+    grid-template-columns: repeat(2, 1fr);
+}
 }
