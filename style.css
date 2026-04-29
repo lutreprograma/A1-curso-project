@@ -44,10 +44,7 @@ h1 {
     transform: scale(1.05);
 }
 
-/* ========================= */
-/* 🔥 NAV SUPERIOR LIMPIO */
-/* ========================= */
-
+/* NAV SUPERIOR */
 .nav-superior {
     display: flex;
     justify-content: space-between;
@@ -55,21 +52,12 @@ h1 {
     padding: 15px 20px;
 }
 
-.titulo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-}
-
+/* TÍTULO CENTRADO */
 .titulo {
     text-align: center;
 }
 
-.titulo h1 {
-    margin: 5px 0;
-}
-
+/* TEXTO UNIDAD */
 .unidad {
     margin: 0;
     font-size: 0.9em;
@@ -77,14 +65,6 @@ h1 {
 }
 
 /* BOTONES */
-.nav-botones {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 10px;
-}
-
 .boton-nav {
     background: rgba(255,255,255,0.2);
     padding: 8px 15px;
@@ -95,6 +75,67 @@ h1 {
     transition: 0.2s;
 }
 
+/* HOVER BOTÓN */
+.boton-nav:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+/* TEXTOS */
+.unidad-numero {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.8;
+    color: white;
+}
+
+.unidad-titulo {
+    margin: 5px 0 10px 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+}
+
+/* IMÁGENES TARJETAS */
+.bloque img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px solid white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* CONTENEDOR SUPERIOR */
+.nav-superior {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* TÍTULO */
+.titulo h1 {
+    margin: 5px 0;
+}
+
+/* BOTONES LATERALES */
+.nav-botones {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+/* BOTONES */
+.boton-nav {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+/* HOVER */
 .boton-nav:hover {
     background: rgba(255,255,255,0.4);
 }
@@ -127,6 +168,7 @@ h1 {
     margin-top: 10px;
 }
 
+/* CADA BANDERA */
 .banderas .flag {
     position: relative;
     cursor: pointer;
@@ -135,6 +177,7 @@ h1 {
     flex: none;
 }
 
+/* IMAGEN BANDERA */
 .banderas .flag img {
     width: 100%;
     height: 100%;
@@ -144,24 +187,45 @@ h1 {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* HOVER */
 .banderas .flag:hover img {
     transform: scale(1.1);
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* ICONO AUDIO */
 .flag span {
     position: absolute;
     bottom: -8px;
     right: -5px;
     font-size: 16px;
+}
+
+.flag span {
     pointer-events: none;
 }
 
+/* CLICK */
 .flag:active {
     transform: scale(0.95);
 }
 
-/* AUDIO */
+/* IMAGEN GRANDE */
+.imagen-grande {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.imagen-grande img {
+    width: 85%;
+    max-width: 700px;
+    border-radius: 20px;
+    border: 4px solid white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* AUDIO PRINCIPAL */
 .audio-principal {
     margin: 20px auto;
     width: 80%;
@@ -180,19 +244,12 @@ audio {
     font-size: 16px;
 }
 
-/* GRID ACTIVIDADES */
+/* GRID */
 .grid-ejercicios {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 20px;
-}
-
-/* TARJETAS EJERCICIO (NUEVO) */
-.ejercicio {
-    background: rgba(255,255,255,0.1);
-    padding: 20px;
-    border-radius: 20px;
 }
 
 /* ========================= */
@@ -208,12 +265,7 @@ audio {
 
     .nav-superior {
         flex-direction: column;
-        position: relative;
-    }
-
-    .titulo {
-        position: static;
-        transform: none;
+        gap: 10px;
     }
 
     .nav-botones {
@@ -222,6 +274,11 @@ audio {
         align-items: center;
     }
 
+    .contenedor-unidades {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px;
+    }
 
     .bloque img {
         height: 180px;
@@ -230,6 +287,4 @@ audio {
     .grid-ejercicios {
         grid-template-columns: repeat(2, 1fr);
     }
-
-
 }
