@@ -11,14 +11,17 @@
 <body>
 
 <div class="nav-superior">
-    <a href="../index.html" class="boton-nav">← Volver</a>
-    
+
     <div class="titulo">
         <p class="unidad">Unidad 1</p>
         <h1>El abecedario</h1>
     </div>
 
-    <a href="actividad1.html" class="boton-nav">Siguiente →</a>
+    <div class="nav-botones">
+        <a href="../index.html" class="boton-nav izquierda">← Volver</a>
+        <a href="actividad1.html" class="boton-nav derecha">Siguiente →</a>
+    </div>
+
 </div>
 
 <div class="instruccion">
@@ -50,6 +53,7 @@
     <img src="img/alfabeto.png" alt="Abecedario">
 </div>
 
+
 <!-- AUDIO INSTRUCCIONES (OCULTOS) -->
 <audio id="es" src="audio/instruccion_1_es.mp3"></audio>
 <audio id="en" src="audio/instruccion_1_en.mp3"></audio>
@@ -62,7 +66,9 @@
         <source src="audio/alfabeto_es.mp3" type="audio/mpeg">
     </audio>
 </div>
-
+<div class="inicio">
+    <a href="../index.html">🏠</a>
+</div>
 <script src="../script.js"></script>
 
 </body>
