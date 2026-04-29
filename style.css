@@ -43,7 +43,41 @@ h1 {
 .bloque:hover {
     transform: scale(1.05);
 }
+/* NAV SUPERIOR */
+.nav-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
 
+/* TÍTULO CENTRADO */
+.titulo {
+    text-align: center;
+}
+
+/* TEXTO UNIDAD */
+.unidad {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* BOTONES */
+.boton-nav {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+/* HOVER BOTÓN */
+.boton-nav:hover {
+    background: rgba(255,255,255,0.4);
+}
 /* TEXTOS */
 .unidad-numero {
     margin: 0;
@@ -164,7 +198,10 @@ audio {
         font-size: 2em;
         padding: 20px;
     }
-
+.nav-superior {
+    flex-direction: column;
+    gap: 10px;
+}
     .contenedor-unidades {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
