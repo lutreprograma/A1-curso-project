@@ -102,6 +102,50 @@ h1 {
     border: 4px solid white;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+/* CONTENEDOR SUPERIOR */
+.nav-superior {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* TÍTULO */
+.titulo h1 {
+    margin: 5px 0;
+}
+
+/* BOTONES LATERALES */
+.nav-botones {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+/* BOTONES */
+.boton-nav {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+/* HOVER */
+.boton-nav:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+/* BOTÓN INICIO */
+.inicio {
+    margin: 40px 0 20px 0;
+}
+
+.inicio a {
+    font-size: 28px;
+    text-decoration: none;
+}
 
 /* ========================= */
 /* 🔥 UNIDAD 1 */
@@ -201,6 +245,11 @@ audio {
 .nav-superior {
     flex-direction: column;
     gap: 10px;
+}
+    .nav-botones {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
     .contenedor-unidades {
         grid-template-columns: repeat(2, 1fr);
