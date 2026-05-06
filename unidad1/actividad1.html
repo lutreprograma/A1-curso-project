@@ -229,26 +229,31 @@ function playWord(word){
     document.getElementById("audio-" + word).play();
 }
 
+<script>
+
 /* VALIDACIÓN */
 function check(opcion, correcta, palabraId, elemento){
 
+    let palabraElemento =
+    document.getElementById(palabraId);
+
     let palabraActual =
-    document.getElementById(palabraId)
-    .innerText
+    palabraElemento.innerText
     .toLowerCase();
 
     let resultado =
-    palabraActual.replace("__", opcion);
+    palabraActual.replace("__", opcion.toLowerCase());
 
-    if(resultado === correcta){
+    if(resultado === correcta.toLowerCase()){
 
+        elemento.classList.remove("incorrecto");
         elemento.classList.add("correcto");
 
-        document.getElementById(palabraId)
-        .innerText = correcta;
+        palabraElemento.innerText = correcta;
 
     } else {
 
+        elemento.classList.remove("correcto");
         elemento.classList.add("incorrecto");
 
     }
