@@ -191,11 +191,11 @@ audio {
     }
 
     .contenedor-unidades {
-        grid-template-columns: repeat(1fr);
+        grid-template-columns: 1fr;
     }
 
     .grid-ejercicios {
-        grid-template-columns: repeat(1fr);
+        grid-template-columns: 1fr;
     }
 
     .nav-botones {
