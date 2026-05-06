@@ -170,6 +170,12 @@ audio {
     font-size: 16px;
 }
 
+.ejemplos p {
+    text-align: center;
+    line-height: 1.6;
+    padding: 0 15px;
+}
+
 /* GRID EJERCICIOS */
 .grid-ejercicios {
     display: grid;
@@ -193,6 +199,11 @@ audio {
     .contenedor-unidades {
         grid-template-columns: 1fr;
     }
+
+    .ejemplos p {
+    font-size: 15px;
+    line-height: 1.8;
+}
 
     .grid-ejercicios {
         grid-template-columns: 1fr;
