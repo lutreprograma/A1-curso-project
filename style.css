@@ -191,7 +191,7 @@ audio {
     }
 
     .contenedor-unidades {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1fr);
     }
 
     .grid-ejercicios {
