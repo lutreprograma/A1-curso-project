@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 1 - Sonidos difíciles</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* BLOQUE ACTIVIDAD */
+.ejercicio {
+    margin: 20px 0;
+}
+
+.ejercicio img {
+    width: 120px;
+    cursor: pointer;
+}
+
+/* PALABRA */
+.palabra {
+    font-size: 28px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* OPCIONES */
+.opciones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.opcion {
+    background: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ESTADOS */
+.correcto {
+    background: #2ecc71 !important;
+    color: white;
+}
+
+.incorrecto {
+    background: #e74c3c !important;
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav-superior">
+    <div class="titulo">
+        <p class="unidad">Unidad 1</p>
+        <h1>Sonidos difíciles</h1>
+    </div>
+
+    <div class="nav-botones">
+        <a href="actividad1.html" class="boton-nav">← Volver</a>
+        <a href="vocabulario2.html" class="boton-nav">Siguiente →</a>
+    </div>
+</div>
+
+<div class="instruccion">
+    <p>Ahora observa las diferencias entre el sonido /g/ y /j/ y completa con las letras g, gu, j.</p>
+
+    <div class="banderas">
+        <div class="flag" onclick="playAudio('es')">
+            <img src="img/es.png"><span>🔊</span>
+        </div>
+
+        <div class="flag" onclick="playAudio('en')">
+            <img src="img/en.png"><span>🔊</span>
+        </div>
+
+        <div class="flag" onclick="playAudio('fr')">
+            <img src="img/fr.png"><span>🔊</span>
+        </div>
+
+        <div class="flag" onclick="playAudio('ru')">
+            <img src="img/ru.avif"><span>🔊</span>
+        </div>
+
+        <div class="flag" onclick="playAudio('ar')">
+            <img src="img/ar.png"><span>🔊</span>
+        </div>
+    </div>
+</div>
+
+<!-- AUDIOS INSTRUCCIÓN -->
+<audio id="es" src="audio/instruccion_3_es.mp3"></audio>
+<audio id="en" src="audio/instruccion_3_en.mp3"></audio>
+<audio id="ru" src="audio/instruccion_3_ru.mp3"></audio>
+<audio id="ar" src="audio/instruccion_3_ar.mp3"></audio>
+
+
+<!-- ACTIVIDAD2 -->
+<div class="ejemplos">
+
+<p>
+Ga: gato, gallina, regalo.
+Go: goma, gorro, amigo.
+Gu: guante, agua, canguro.
+Gue: guerra, guepardo, juguete.
+Gui: guiño, guitarra, seguir.
+Ja: jarra, jarabe, pájaro.
+
+Jo: joya, joroba, ojo.
+Ju: julio, jurado, jugoso.
+Je: jengibre, masaje, extranjero.
+Ji: jirafa, pajita, mejilla.
+Ge: genio, gemelo, ligero.
+Gi: girar, gigante, página.
+</p>
+
+<!-- AUDIO GENERAL -->
+<div class="audio-principal">
+    <audio controls>
+        <source src="audio/actividad2_es.mp3" type="audio/mpeg">
+    </audio>
+</div>
+    
+</div>
+<!-- ========================= -->
+<!-- EJERCICIOS -->
+<!-- ========================= -->
+
+<!-- GATO -->
+<div class="grid-ejercicios">
+<div class="ejercicio">
+    <img src="img/gato.png" onclick="playWord('gato')">
+
+    <div class="palabra" id="palabra-gato">__to</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('ja','gato','palabra-gato', this)">JA</div>
+        <div class="opcion" onclick="check('ga','gato','palabra-gato', this)">GA</div>
+        <div class="opcion" onclick="check('ca','gato','palabra-gato', this)">CA</div>
+    </div>
+</div>
+
+<!-- GEMELOS -->
+<div class="ejercicio">
+    <img src="img/gemelos.png" onclick="playWord('gemelos')">
+
+    <div class="palabra" id="palabra-gemelos">__melos</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('je','gemelos','palabra-gemelos', this)">JE</div>
+        <div class="opcion" onclick="check('gue','gemelos','palabra-gemelos', this)">GUE</div>
+        <div class="opcion" onclick="check('ge','gemelos','palabra-gemelos', this)">GE</div>
+    </div>
+</div>
+
+<!-- GIMNASIO -->
+<div class="ejercicio">
+    <img src="img/gimnasio.png" onclick="playWord('gimnasio')">
+
+    <div class="palabra" id="palabra-gimnasio">___nasio</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('guim','gimnasio','palabra-gimnasio', this)">GUIM</div>
+        <div class="opcion" onclick="check('gim','gimnasio','palabra-gimnasio', this)">GIM</div>
+        <div class="opcion" onclick="check('jin','gimnasio','palabra-gimnasio', this)">JIN</div>
+    </div>
+</div>
+
+<!-- GUISANTES -->
+<div class="ejercicio">
+    <img src="img/guisantes.png" onclick="playWord('guisantes')">
+
+    <div class="palabra" id="palabra-guisantes">___santes</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('qui','guisantes','palabra-guisantes', this)">QUI</div>
+        <div class="opcion" onclick="check('ji','guisantes','palabra-guisantes', this)">JI</div>
+        <div class="opcion" onclick="check('gui','guisantes','palabra-guisantes', this)">GUI</div>
+    </div>
+</div>
+
+<!-- JABON -->
+<div class="ejercicio">
+    <img src="img/jabon.png" onclick="playWord('jabon')">
+
+    <div class="palabra" id="palabra-jabon">__bon</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('ga','jabon','palabra-jabon', this)">GA</div>
+        <div class="opcion" onclick="check('ja','jabon','palabra-jabon', this)">JA</div>
+        <div class="opcion" onclick="check('sa','jabon','palabra-jabon', this)">SA</div>
+    </div>
+</div>
+
+
+<!-- MANGUERA -->
+<div class="ejercicio">
+    <img src="img/manguera.png" onclick="playWord('manguera')">
+
+    <div class="palabra" id="palabra-manguera">man___ra</div>
+
+    <div class="opciones">
+        <div class="opcion" onclick="check('gue','manguera','palabra-manguera', this)">GUE</div>
+        <div class="opcion" onclick="check('je','manguera','palabra-manguera', this)">JE</div>
+        <div class="opcion" onclick="check('ge','manguera','palabra-manguera', this)">GE</div>
+    </div>
+</div>
+
+<!-- ========================= -->
+
+<!-- AUDIOS -->
+<audio id="audio-gato" src="audio/gato_es.mp3"></audio>
+<audio id="audio-gemelos" src="audio/gemelos_es.mp3"></audio>
+<audio id="audio-gimnasio" src="audio/gimnasio_es.mp3"></audio>
+<audio id="audio-guisantes" src="audio/guisantes_es.mp3"></audio>
+<audio id="audio-jabon" src="audio/jabon_es.mp3"></audio>
+<audio id="audio-manguera" src="audio/manguera_es.mp3"></audio>
+
+<!-- BOTÓN INICIO -->
+<div class="inicio">
+    <a href="../index.html">🏠</a>
+</div>
+
+<script>
+
+/* AUDIO BANDERAS */
+function playAudio(id){
+    document.getElementById(id).play();
+}
+    
+/* AUDIO POR IMAGEN */
+function playWord(word){
+    document.getElementById("audio-" + word).play();
+}
+
+/* VALIDACIÓN INTELIGENTE */
+function check(opcion, correcta, palabraId, elemento){
+
+    let palabraElemento =
+    document.getElementById(palabraId);
+
+    let palabraActual =
+    palabraElemento.innerText.toLowerCase();
+
+    /* Detecta automáticamente _, __ o ___ */
+    let hueco =
+    palabraActual.match(/_+/);
+
+    if(hueco){
+
+        let resultado =
+        palabraActual.replace(
+            hueco[0],
+            opcion.toLowerCase()
+        );
+
+        if(resultado === correcta.toLowerCase()){
+
+            elemento.classList.remove("incorrecto");
+            elemento.classList.add("correcto");
+
+            palabraElemento.innerText = correcta;
+
+        } else {
+
+            elemento.classList.remove("correcto");
+            elemento.classList.add("incorrecto");
+
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>
