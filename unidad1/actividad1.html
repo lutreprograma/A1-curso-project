@@ -232,11 +232,25 @@ function playWord(word){
 /* VALIDACIÓN */
 function check(opcion, correcta, palabraId, elemento){
 
-    if(correcta.includes(opcion)){
+    let palabraActual =
+    document.getElementById(palabraId)
+    .innerText
+    .toLowerCase();
+
+    let resultado =
+    palabraActual.replace("__", opcion);
+
+    if(resultado === correcta){
+
         elemento.classList.add("correcto");
-        document.getElementById(palabraId).innerText = correcta;
+
+        document.getElementById(palabraId)
+        .innerText = correcta;
+
     } else {
+
         elemento.classList.add("incorrecto");
+
     }
 }
 
