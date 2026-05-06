@@ -234,31 +234,40 @@ function playWord(word){
     document.getElementById("audio-" + word).play();
 }
 
-/* VALIDACIÓN */
+/* VALIDACIÓN INTELIGENTE */
 function check(opcion, correcta, palabraId, elemento){
 
     let palabraElemento =
     document.getElementById(palabraId);
 
     let palabraActual =
-    palabraElemento.innerText
-    .toLowerCase();
+    palabraElemento.innerText.toLowerCase();
 
-    let resultado =
-    palabraActual.replace("__", opcion.toLowerCase());
+    /* Detecta automáticamente _, __ o ___ */
+    let hueco =
+    palabraActual.match(/_+/);
 
-    if(resultado === correcta.toLowerCase()){
+    if(hueco){
 
-        elemento.classList.remove("incorrecto");
-        elemento.classList.add("correcto");
+        let resultado =
+        palabraActual.replace(
+            hueco[0],
+            opcion.toLowerCase()
+        );
 
-        palabraElemento.innerText = correcta;
+        if(resultado === correcta.toLowerCase()){
 
-    } else {
+            elemento.classList.remove("incorrecto");
+            elemento.classList.add("correcto");
 
-        elemento.classList.remove("correcto");
-        elemento.classList.add("incorrecto");
+            palabraElemento.innerText = correcta;
 
+        } else {
+
+            elemento.classList.remove("correcto");
+            elemento.classList.add("incorrecto");
+
+        }
     }
 }
 
