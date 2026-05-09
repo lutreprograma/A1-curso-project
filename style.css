@@ -237,6 +237,37 @@ audio {
     border: 2px solid white;
 }
 
+/* ========================= */
+/* NÚMEROS */
+/* ========================= */
+
+.numeros-seccion{
+    margin: 50px auto;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.numeros-seccion h2{
+    margin-bottom: 25px;
+}
+
+.numeros-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.numero{
+    font-size: 60px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.numero:hover{
+    transform: scale(1.15);
+}
 
 
 /* ========================= */
@@ -294,5 +325,13 @@ audio {
 
 .frase-img{
     width: 220px;
+}
+
+.numero{
+    font-size: 45px;
+}
+
+.numeros-grid{
+    gap: 18px;
 }
 }
