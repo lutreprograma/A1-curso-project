@@ -186,6 +186,44 @@ audio {
 }
 
 /* ========================= */
+/* FRASES ÚTILES */
+/* ========================= */
+
+.frases-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.frase-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.frase-img{
+    width: 220px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.frase-img:hover{
+    transform: scale(1.03);
+}
+
+.flags-frase{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+/* ========================= */
 /* 📱 MÓVIL */
 /* ========================= */
 
@@ -233,4 +271,13 @@ audio {
     width: 90%;
     max-width: 400px;
 }
+
+    .frases-grid{
+        grid-template-columns: 1fr;
+        gap: 70px;
+    }
+
+    .frase-img{
+        width: 200px;
+    }
 }
