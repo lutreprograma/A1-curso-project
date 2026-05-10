@@ -187,20 +187,40 @@
 <audio id="numeros9" src="audio/numeros9.mp3"></audio>
 
 <!-- BOTÓN INICIO -->
-<div class="inicio">
-    <a href="../index.html">🏠</a>
-</div>
-
 <script>
 
 /* AUDIO INSTRUCCIÓN */
 function playAudio(id){
-    document.getElementById(id).play();
+
+    let audio =
+    document.getElementById(id);
+
+    if(audio.paused){
+
+        audio.play();
+
+    } else {
+
+        audio.pause();
+
+    }
 }
 
 /* AUDIO NÚMEROS */
 function playNumero(id){
-    document.getElementById(id).play();
+
+    let audio =
+    document.getElementById(id);
+
+    if(audio.paused){
+
+        audio.play();
+
+    } else {
+
+        audio.pause();
+
+    }
 }
 
 </script>
