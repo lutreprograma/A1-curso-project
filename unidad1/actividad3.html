@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unidad 1 - Practica los números</title>
+
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+/* ========================= */
+/* EJERCICIOS NÚMEROS */
+/* ========================= */
+
+.grid-numeros{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:40px;
+    max-width:1000px;
+    margin:50px auto;
+    padding:20px;
+}
+
+.ejercicio-numero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.numero-pregunta{
+    width:100px;
+    height:100px;
+
+    background:#8ecae6;
+
+    border-radius:25px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:52px;
+    font-weight:bold;
+    color:white;
+
+    cursor:pointer;
+
+    box-shadow:
+    inset -8px -8px 0 rgba(0,0,0,0.15),
+    inset 5px 5px 0 rgba(255,255,255,0.2);
+
+    transition:0.2s;
+}
+
+.numero-pregunta:hover{
+    transform:scale(1.06);
+}
+
+.numero-correcto{
+    background:#2ecc71 !important;
+}
+
+.numero-incorrecto{
+    background:#e74c3c !important;
+}
+
+.opciones{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.opcion{
+    background:white;
+    color:black;
+
+    padding:10px 16px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+.correcto{
+    background:#2ecc71 !important;
+    color:white;
+}
+
+.incorrecto{
+    background:#e74c3c !important;
+    color:white;
+}
+
+/* MÓVIL */
+
+@media(max-width:700px){
+
+    .grid-numeros{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px 15px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav-superior">
+
+    <div class="titulo">
+        <p class="unidad">Unidad 1</p>
+        <h1>🔢 Practica los números 🎧</h1>
+    </div>
+
+    <div class="nav-botones">
+        <a href="vocabulario3.html" class="boton-nav">← Volver</a>
+        <a href="index.html" class="boton-nav">🏠 Inicio</a>
+    </div>
+
+</div>
+
+<!-- INSTRUCCIÓN -->
+
+<div class="instruccion">
+
+<p>
+Elige el número correcto.
+</p>
+
+<div class="banderas">
+
+    <div class="flag" onclick="playAudio('es')">
+        <img src="img/es.png"><span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('en')">
+        <img src="img/en.png"><span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('fr')">
+        <img src="img/fr.png"><span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('ru')">
+        <img src="img/ru.avif"><span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('ar')">
+        <img src="img/ar.png"><span>🔊</span>
+    </div>
+
+</div>
+
+</div>
+
+<!-- AUDIOS INSTRUCCIÓN -->
+
+<audio id="es" src="audio/instruccion_6_es.mp3"></audio>
+<audio id="en" src="audio/instruccion_6_en.mp3"></audio>
+<audio id="fr" src="audio/instruccion_6_fr.mp3"></audio>
+<audio id="ru" src="audio/instruccion_6_ru.mp3"></audio>
+<audio id="ar" src="audio/instruccion_6_ar.mp3"></audio>
+<audio id="uc" src="audio/instruccion_6_uc.mp3"></audio>
+
+<!-- ========================= -->
+<!-- EJERCICIOS NÚMEROS -->
+<!-- ========================= -->
+
+<div class="grid-numeros">
+
+<!-- 1 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('1')" id="pregunta-1">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('13','13','pregunta-1', this)">13</div>
+<div class="opcion" onclick="checkNumero('30','13','pregunta-1', this)">30</div>
+<div class="opcion" onclick="checkNumero('40','13','pregunta-1', this)">40</div>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('2')" id="pregunta-2">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('30','30','pregunta-2', this)">30</div>
+<div class="opcion" onclick="checkNumero('13','30','pregunta-2', this)">13</div>
+<div class="opcion" onclick="checkNumero('40','30','pregunta-2', this)">40</div>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('3')" id="pregunta-3">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('14','14','pregunta-3', this)">14</div>
+<div class="opcion" onclick="checkNumero('40','14','pregunta-3', this)">40</div>
+<div class="opcion" onclick="checkNumero('15','14','pregunta-3', this)">15</div>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('4')" id="pregunta-4">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('40','40','pregunta-4', this)">40</div>
+<div class="opcion" onclick="checkNumero('14','40','pregunta-4', this)">14</div>
+<div class="opcion" onclick="checkNumero('50','40','pregunta-4', this)">50</div>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('5')" id="pregunta-5">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('15','15','pregunta-5', this)">15</div>
+<div class="opcion" onclick="checkNumero('50','15','pregunta-5', this)">50</div>
+<div class="opcion" onclick="checkNumero('16','15','pregunta-5', this)">16</div>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('6')" id="pregunta-6">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('50','50','pregunta-6', this)">50</div>
+<div class="opcion" onclick="checkNumero('15','50','pregunta-6', this)">15</div>
+<div class="opcion" onclick="checkNumero('60','50','pregunta-6', this)">60</div>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('7')" id="pregunta-7">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('16','16','pregunta-7', this)">16</div>
+<div class="opcion" onclick="checkNumero('60','16','pregunta-7', this)">60</div>
+<div class="opcion" onclick="checkNumero('17','16','pregunta-7', this)">17</div>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('8')" id="pregunta-8">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('60','60','pregunta-8', this)">60</div>
+<div class="opcion" onclick="checkNumero('16','60','pregunta-8', this)">16</div>
+<div class="opcion" onclick="checkNumero('70','60','pregunta-8', this)">70</div>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('9')" id="pregunta-9">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('17','17','pregunta-9', this)">17</div>
+<div class="opcion" onclick="checkNumero('70','17','pregunta-9', this)">70</div>
+<div class="opcion" onclick="checkNumero('16','17','pregunta-9', this)">16</div>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('10')" id="pregunta-10">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('70','70','pregunta-10', this)">70</div>
+<div class="opcion" onclick="checkNumero('17','70','pregunta-10', this)">17</div>
+<div class="opcion" onclick="checkNumero('60','70','pregunta-10', this)">60</div>
+</div>
+</div>
+
+<!-- 11 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('11')" id="pregunta-11">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('22','22','pregunta-11', this)">22</div>
+<div class="opcion" onclick="checkNumero('32','22','pregunta-11', this)">32</div>
+<div class="opcion" onclick="checkNumero('23','22','pregunta-11', this)">23</div>
+</div>
+</div>
+
+<!-- 12 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('12')" id="pregunta-12">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('32','32','pregunta-12', this)">32</div>
+<div class="opcion" onclick="checkNumero('22','32','pregunta-12', this)">22</div>
+<div class="opcion" onclick="checkNumero('33','32','pregunta-12', this)">33</div>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('13')" id="pregunta-13">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('23','23','pregunta-13', this)">23</div>
+<div class="opcion" onclick="checkNumero('33','23','pregunta-13', this)">33</div>
+<div class="opcion" onclick="checkNumero('22','23','pregunta-13', this)">22</div>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('14')" id="pregunta-14">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('33','33','pregunta-14', this)">33</div>
+<div class="opcion" onclick="checkNumero('23','33','pregunta-14', this)">23</div>
+<div class="opcion" onclick="checkNumero('32','33','pregunta-14', this)">32</div>
+</div>
+</div>
+
+<!-- 15 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('16')" id="pregunta-15">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('26','26','pregunta-15', this)">26</div>
+<div class="opcion" onclick="checkNumero('66','26','pregunta-15', this)">66</div>
+<div class="opcion" onclick="checkNumero('22','26','pregunta-15', this)">22</div>
+</div>
+</div>
+
+<!-- 16 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('17')" id="pregunta-16">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('66','66','pregunta-16', this)">66</div>
+<div class="opcion" onclick="checkNumero('26','66','pregunta-16', this)">26</div>
+<div class="opcion" onclick="checkNumero('33','66','pregunta-16', this)">33</div>
+</div>
+</div>
+
+<!-- 17 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('18')" id="pregunta-17">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('41','41','pregunta-17', this)">41</div>
+<div class="opcion" onclick="checkNumero('51','41','pregunta-17', this)">51</div>
+<div class="opcion" onclick="checkNumero('71','41','pregunta-17', this)">71</div>
+</div>
+</div>
+
+<!-- 18 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('19')" id="pregunta-18">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('51','51','pregunta-18', this)">51</div>
+<div class="opcion" onclick="checkNumero('41','51','pregunta-18', this)">41</div>
+<div class="opcion" onclick="checkNumero('91','51','pregunta-18', this)">91</div>
+</div>
+</div>
+
+<!-- 19 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('20')" id="pregunta-19">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('71','71','pregunta-19', this)">71</div>
+<div class="opcion" onclick="checkNumero('91','71','pregunta-19', this)">91</div>
+<div class="opcion" onclick="checkNumero('51','71','pregunta-19', this)">51</div>
+</div>
+</div>
+
+<!-- 20 -->
+<div class="ejercicio-numero">
+<div class="numero-pregunta" onclick="playNumero('20')" id="pregunta-20">?</div>
+
+<div class="opciones">
+<div class="opcion" onclick="checkNumero('91','91','pregunta-20', this)">91</div>
+<div class="opcion" onclick="checkNumero('71','91','pregunta-20', this)">71</div>
+<div class="opcion" onclick="checkNumero('41','91','pregunta-20', this)">41</div>
+</div>
+</div>
+
+</div>
+
+<!-- AUDIOS -->
+
+<audio id="audio-1" src="audio/numeros10_1.mp3"></audio>
+<audio id="audio-2" src="audio/numeros10_2.mp3"></audio>
+<audio id="audio-3" src="audio/numeros10_3.mp3"></audio>
+<audio id="audio-4" src="audio/numeros10_4.mp3"></audio>
+<audio id="audio-5" src="audio/numeros10_5.mp3"></audio>
+<audio id="audio-6" src="audio/numeros10_6.mp3"></audio>
+<audio id="audio-7" src="audio/numeros10_7.mp3"></audio>
+<audio id="audio-8" src="audio/numeros10_8.mp3"></audio>
+<audio id="audio-9" src="audio/numeros10_9.mp3"></audio>
+<audio id="audio-10" src="audio/numeros10_10.mp3"></audio>
+<audio id="audio-11" src="audio/numeros10_11.mp3"></audio>
+<audio id="audio-12" src="audio/numeros10_12.mp3"></audio>
+<audio id="audio-13" src="audio/numeros10_13.mp3"></audio>
+<audio id="audio-14" src="audio/numeros10_14.mp3"></audio>
+<audio id="audio-16" src="audio/numeros10_16.mp3"></audio>
+<audio id="audio-17" src="audio/numeros10_17.mp3"></audio>
+<audio id="audio-18" src="audio/numeros10_18.mp3"></audio>
+<audio id="audio-19" src="audio/numeros10_19.mp3"></audio>
+<audio id="audio-20" src="audio/numeros10_20.mp3"></audio>
+
+<!-- BOTÓN INICIO -->
+
+<div class="inicio">
+    <a href="index.html">🏠</a>
+</div>
+
+<script>
+
+/* AUDIO BANDERAS */
+
+function playAudio(id){
+    document.getElementById(id).play();
+}
+
+/* AUDIO NÚMEROS */
+
+function playNumero(numero){
+    document.getElementById("audio-" + numero).play();
+}
+
+/* VALIDACIÓN */
+
+function checkNumero(opcion, correcta, preguntaId, elemento){
+
+    let pregunta =
+    document.getElementById(preguntaId);
+
+    if(opcion === correcta){
+
+        pregunta.innerText = correcta;
+
+        pregunta.classList.remove("numero-incorrecto");
+        pregunta.classList.add("numero-correcto");
+
+        elemento.classList.remove("incorrecto");
+        elemento.classList.add("correcto");
+
+    } else {
+
+        elemento.classList.remove("correcto");
+        elemento.classList.add("incorrecto");
+
+        pregunta.classList.add("numero-incorrecto");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
