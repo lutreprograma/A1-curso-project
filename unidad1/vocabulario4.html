@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Los pronombres personales</title>
+
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav-superior">
+
+    <div class="titulo">
+        <p class="unidad">Unidad 1</p>
+        <h1>Los pronombres personales</h1>
+    </div>
+
+    <div class="nav-botones">
+        <a href="vocabulario3.html" class="boton-nav">← Volver</a>
+        <a href="actividad4.html" class="boton-nav">Siguiente →</a>
+    </div>
+
+</div>
+
+<!-- INSTRUCCIÓN -->
+<div class="instruccion">
+
+<p>
+Escucha y repite los pronombres personales. Toca en la imagen para escuchar el pronombre.
+</p>
+
+<!-- BANDERAS GENERALES -->
+<div class="banderas">
+
+    <div class="flag" onclick="playAudio('es')">
+        <img src="img/es.png">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('en')">
+        <img src="img/en.png">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('fr')">
+        <img src="img/fr.png">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('ru')">
+        <img src="img/ru.avif">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('ar')">
+        <img src="img/ar.png">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('uc')">
+        <img src="img/uc.png">
+        <span>🔊</span>
+    </div>
+
+</div>
+
+</div>
+
+<!-- AUDIOS INSTRUCCIÓN -->
+
+<audio id="es" src="audio/instruccion_7_es.mp3"></audio>
+<audio id="en" src="audio/instruccion_7_en.mp3"></audio>
+<audio id="fr" src="audio/instruccion_7_fr.mp3"></audio>
+<audio id="ru" src="audio/instruccion_7_ru.mp3"></audio>
+<audio id="ar" src="audio/instruccion_7_ar.mp3"></audio>
+<audio id="uc" src="audio/instruccion_7_uc.mp3"></audio>
+
+<!-- ========================= -->
+<!-- PRONOMBRES -->
+<!-- ========================= -->
+
+<div class="frases-grid">
+
+    <!-- YO -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre1.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre1')">
+
+    </div>
+
+    <!-- TÚ -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre2.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre2')">
+
+    </div>
+
+    <!-- USTED -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre2-1.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre2-1')">
+
+    </div>
+
+    <!-- ÉL -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre3.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre3')">
+
+    </div>
+
+    <!-- ELLA -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre4.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre4')">
+
+    </div>
+
+    <!-- NOSOTROS -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre5.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre5')">
+
+    </div>
+
+    <!-- NOSOTRAS -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre6.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre6')">
+
+    </div>
+
+    <!-- VOSOTROS -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre7.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre7')">
+
+    </div>
+
+    <!-- VOSOTRAS -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre8.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre8')">
+
+    </div>
+
+    <!-- ELLOS -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre9.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre9')">
+
+    </div>
+
+    <!-- ELLAS -->
+    <div class="frase-card">
+
+        <img
+        src="img/pronombre10.png"
+        class="frase-img"
+        onclick="playPronombre('pronombre10')">
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- AUDIOS PRONOMBRES -->
+<!-- ========================= -->
+
+<audio id="pronombre1" src="audio/pronombre1.mp3"></audio>
+<audio id="pronombre2" src="audio/pronombre2.mp3"></audio>
+<audio id="pronombre2-1" src="audio/pronombre2-1.mp3"></audio>
+<audio id="pronombre3" src="audio/pronombre3.mp3"></audio>
+<audio id="pronombre4" src="audio/pronombre4.mp3"></audio>
+<audio id="pronombre5" src="audio/pronombre5.mp3"></audio>
+<audio id="pronombre6" src="audio/pronombre6.mp3"></audio>
+<audio id="pronombre7" src="audio/pronombre7.mp3"></audio>
+<audio id="pronombre8" src="audio/pronombre8.mp3"></audio>
+<audio id="pronombre9" src="audio/pronombre9.mp3"></audio>
+<audio id="pronombre10" src="audio/pronombre10.mp3"></audio>
+
+<!-- BOTÓN INICIO -->
+<div class="inicio">
+    <a href="index.html">🏠</a>
+</div>
+
+<script>
+
+/* AUDIO INSTRUCCIÓN */
+function playAudio(id){
+    document.getElementById(id).play();
+}
+
+/* AUDIO PRONOMBRES */
+function playPronombre(id){
+    document.getElementById(id).play();
+}
+
+</script>
+
+</body>
+</html>
