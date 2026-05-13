@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unidad 1 - Practica los pronombres🎧</title>
+
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+/* ========================= */
+/* EJERCICIOS PRONOMBRES */
+/* ========================= */
+
+.grid-pronombres{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:25px;
+    max-width:1000px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.ejercicio-pronombre{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* IMAGEN OCULTA */
+
+.pronombre-pregunta{
+    width:110px;
+    height:110px;
+
+    background:#8ecae6;
+
+    border-radius:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:50px;
+    font-weight:bold;
+    color:white;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    box-shadow:
+    inset -8px -8px 0 rgba(0,0,0,0.15),
+    inset 5px 5px 0 rgba(255,255,255,0.2);
+
+    transition:0.2s;
+}
+
+.pronombre-pregunta:hover{
+    transform:scale(1.05);
+}
+
+.pronombre-pregunta img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ESTADOS */
+
+.pronombre-correcto{
+    background:#2ecc71 !important;
+}
+
+.pronombre-incorrecto{
+    background:#e74c3c !important;
+}
+
+/* OPCIONES */
+
+.opciones{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+    justify-content:center;
+}
+
+.opcion-img{
+    width:65px;
+    height:65px;
+
+    border-radius:15px;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    border:4px solid white;
+
+    transition:0.2s;
+}
+
+.opcion-img:hover{
+    transform:scale(1.05);
+}
+
+.correcto{
+    border:4px solid #2ecc71 !important;
+}
+
+.incorrecto{
+    border:4px solid #e74c3c !important;
+}
+
+/* MÓVIL */
+
+@media(max-width:700px){
+
+    .grid-pronombres{
+        grid-template-columns: repeat(2, 1fr);
+        gap:20px 10px;
+    }
+
+    .pronombre-pregunta{
+        width:90px;
+        height:90px;
+    }
+
+    .opcion-img{
+        width:55px;
+        height:55px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav-superior">
+
+    <div class="titulo">
+        <p class="unidad">Unidad 1</p>
+        <h1>👤 Practica los pronombres 🎧</h1>
+    </div>
+
+    <div class="nav-botones">
+        <a href="vocabulario4.html" class="boton-nav">← Volver</a>
+        <a href="vocabulario5.html" class="boton-nav">Siguiente →</a>
+    </div>
+
+</div>
+
+<!-- INSTRUCCIÓN -->
+
+<div class="instruccion">
+
+<p>
+Escucha el pronombre y elige la imagen correcta.
+</p>
+
+</div>
+
+<!-- ========================= -->
+<!-- EJERCICIOS -->
+<!-- ========================= -->
+
+<div class="grid-pronombres">
+
+<!-- 1 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('1')"
+id="pregunta-1">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre2.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre2','pronombre1','pregunta-1', this)">
+
+<img src="img/pronombre1.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre1','pronombre1','pregunta-1', this)">
+
+</div>
+</div>
+
+<!-- 2 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('2')"
+id="pregunta-2">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre2-1.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre2-1','pronombre2','pregunta-2', this)">
+
+<img src="img/pronombre2.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre2','pronombre2','pregunta-2', this)">
+
+</div>
+</div>
+
+<!-- 3 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('3')"
+id="pregunta-3">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre2-1.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre2-1','pronombre2-1','pregunta-3', this)">
+
+<img src="img/pronombre4.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre4','pronombre2-1','pregunta-3', this)">
+
+</div>
+</div>
+
+<!-- 4 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('4')"
+id="pregunta-4">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre3.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre3','pronombre3','pregunta-4', this)">
+
+<img src="img/pronombre4.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre4','pronombre3','pregunta-4', this)">
+
+</div>
+</div>
+
+<!-- 5 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('5')"
+id="pregunta-5">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre3.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre3','pronombre4','pregunta-5', this)">
+
+<img src="img/pronombre4.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre4','pronombre4','pregunta-5', this)">
+
+</div>
+</div>
+
+<!-- 6 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('6')"
+id="pregunta-6">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre6.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre6','pronombre5','pregunta-6', this)">
+
+<img src="img/pronombre5.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre5','pronombre5','pregunta-6', this)">
+
+</div>
+</div>
+
+<!-- 7 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('7')"
+id="pregunta-7">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre6.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre6','pronombre6','pregunta-7', this)">
+
+<img src="img/pronombre5.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre5','pronombre6','pregunta-7', this)">
+
+</div>
+</div>
+
+<!-- 8 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('8')"
+id="pregunta-8">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre7.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre7','pronombre7','pregunta-8', this)">
+
+<img src="img/pronombre8.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre8','pronombre7','pregunta-8', this)">
+
+</div>
+</div>
+
+<!-- 9 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('9')"
+id="pregunta-9">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre8.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre8','pronombre8','pregunta-9', this)">
+
+<img src="img/pronombre7.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre7','pronombre8','pregunta-9', this)">
+
+</div>
+</div>
+
+<!-- 10 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('10')"
+id="pregunta-10">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre10.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre10','pronombre9','pregunta-10', this)">
+
+<img src="img/pronombre9.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre9','pronombre9','pregunta-10', this)">
+
+</div>
+</div>
+
+<!-- 11 -->
+<div class="ejercicio-pronombre">
+
+<div class="pronombre-pregunta"
+onclick="playPronombre('11')"
+id="pregunta-11">?</div>
+
+<div class="opciones">
+
+<img src="img/pronombre9.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre9','pronombre10','pregunta-11', this)">
+
+<img src="img/pronombre10.png"
+class="opcion-img"
+onclick="checkPronombre('pronombre10','pronombre10','pregunta-11', this)">
+
+</div>
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- AUDIOS -->
+<!-- ========================= -->
+
+<audio id="audio-1" src="audio/pronombre1.mp3"></audio>
+<audio id="audio-2" src="audio/pronombre2.mp3"></audio>
+<audio id="audio-3" src="audio/pronombre2-1.mp3"></audio>
+<audio id="audio-4" src="audio/pronombre3.mp3"></audio>
+<audio id="audio-5" src="audio/pronombre4.mp3"></audio>
+<audio id="audio-6" src="audio/pronombre5.mp3"></audio>
+<audio id="audio-7" src="audio/pronombre6.mp3"></audio>
+<audio id="audio-8" src="audio/pronombre7.mp3"></audio>
+<audio id="audio-9" src="audio/pronombre8.mp3"></audio>
+<audio id="audio-10" src="audio/pronombre9.mp3"></audio>
+<audio id="audio-11" src="audio/pronombre10.mp3"></audio>
+
+<!-- BOTÓN INICIO -->
+
+<div class="inicio">
+    <a href="index.html">🏠</a>
+</div>
+
+<script>
+
+/* AUDIO */
+
+function playPronombre(numero){
+    document.getElementById("audio-" + numero).play();
+}
+
+/* VALIDACIÓN */
+
+function checkPronombre(opcion, correcta, preguntaId, elemento){
+
+    let pregunta =
+    document.getElementById(preguntaId);
+
+    if(opcion === correcta){
+
+        pregunta.innerHTML =
+        `<img src="img/${correcta}.png">`;
+
+        pregunta.classList.remove("pronombre-incorrecto");
+        pregunta.classList.add("pronombre-correcto");
+
+        elemento.classList.remove("incorrecto");
+        elemento.classList.add("correcto");
+
+    } else {
+
+        elemento.classList.remove("correcto");
+        elemento.classList.add("incorrecto");
+
+        pregunta.classList.add("pronombre-incorrecto");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
