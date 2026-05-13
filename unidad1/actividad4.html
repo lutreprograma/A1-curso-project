@@ -162,11 +162,48 @@
 <div class="instruccion">
 
 <p>
-Escucha el pronombre y elige la imagen correcta.
+Toca la imagen, escucha el pronombre y elige la imagen correcta.
 </p>
+
+<div class="banderas">
+
+    <div class="flag" onclick="playAudio('es')">
+        <img src="img/es.png"><span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('en')">
+        <img src="img/en.png"><span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('fr')">
+        <img src="img/fr.png"><span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('ru')">
+        <img src="img/ru.avif"><span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('ar')">
+        <img src="img/ar.png"><span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('uc')">
+        <img src="img/uc.png"><span>🔊</span>
+    </div>
 
 </div>
 
+</div>
+
+<!-- AUDIOS INSTRUCCIÓN -->
+
+<audio id="es" src="audio/instruccion_8_es.mp3"></audio>
+<audio id="en" src="audio/instruccion_8_en.mp3"></audio>
+<audio id="fr" src="audio/instruccion_8_fr.mp3"></audio>
+<audio id="ru" src="audio/instruccion_8_ru.mp3"></audio>
+<audio id="ar" src="audio/instruccion_8_ar.mp3"></audio>
+<audio id="uc" src="audio/instruccion_8_uc.mp3"></audio>
+    
 <!-- ========================= -->
 <!-- EJERCICIOS -->
 <!-- ========================= -->
@@ -418,7 +455,13 @@ onclick="checkPronombre('pronombre10','pronombre10','pregunta-11', this)">
 </div>
 
 <script>
+    
+/* AUDIO INSTRUCCIÓN */
 
+function playAudio(id){
+    document.getElementById(id).play();
+}
+    
 /* AUDIO */
 
 function playPronombre(numero){
