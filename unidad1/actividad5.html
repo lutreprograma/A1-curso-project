@@ -20,12 +20,14 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    width:100%;
     gap:60px;
     margin:50px auto;
     flex-wrap:wrap;
 }
 
 .reloj{
+    cursor:pointer;
     position:relative;
     width:320px;
     height:320px;
@@ -295,7 +297,7 @@ Toca la imagen interrogativa, escucha y pon el reloj correctamente.
 
 <div class="reloj-container">
 
-<div class="reloj">
+<div class="reloj" id="reloj">
 
 <div class="numero-reloj n1"><span>1</span></div>
 <div class="numero-reloj n2"><span>2</span></div>
@@ -312,30 +314,18 @@ Toca la imagen interrogativa, escucha y pon el reloj correctamente.
 
 <div class="aguja hora" id="agujaHora"></div>
 <div class="aguja minuto" id="agujaMinuto"></div>
+
 <div class="centro"></div>
 
 </div>
 
-<!-- PANEL DERECHO -->
-
 <div class="panel-control">
 
-<div class="caja-resultado" id="resultado">?</div>
-
-<div class="boton-audio" onclick="playCurrentAudio()">🔊</div>
-
-<div class="botones-tiempo">
-
-<div class="boton-tiempo" onclick="cambiarHora(-1)">Hora -</div>
-<div class="boton-tiempo" onclick="cambiarHora(1)">Hora +</div>
-
-<div class="boton-tiempo" onclick="cambiarMinuto(-5)">Min -</div>
-<div class="boton-tiempo" onclick="cambiarMinuto(5)">Min +</div>
-
-</div>
-
-<div class="boton-tiempo" onclick="comprobarHora()">
-Comprobar
+<div
+class="caja-resultado"
+id="resultado"
+onclick="playCurrentAudio()">
+?
 </div>
 
 <div class="hora-digital" id="horaDigital"></div>
@@ -343,7 +333,7 @@ Comprobar
 </div>
 
 </div>
-
+    
 <!-- AUDIOS -->
 
 <audio id="hora8_1" src="audio/hora8_1.mp3"></audio>
@@ -381,8 +371,12 @@ const ejercicios = [
 ];
 
 let actual;
+
 let horaUsuario = 12;
 let minutoUsuario = 0;
+
+const reloj =
+document.getElementById("reloj");
 
 function nuevoEjercicio(){
 
@@ -394,36 +388,20 @@ minutoUsuario = 0;
 
 actualizarReloj();
 
-document.getElementById("resultado").innerText = "?";
-document.getElementById("resultado").className = "caja-resultado";
+const caja =
+document.getElementById("resultado");
 
-document.getElementById("horaDigital").innerText = "";
+caja.innerText = "?";
+caja.className = "caja-resultado";
+
+document.getElementById("horaDigital")
+.innerText = "";
 
 }
 
 function playCurrentAudio(){
+
 document.getElementById(actual.audio).play();
-}
-
-function cambiarHora(valor){
-
-horaUsuario += valor;
-
-if(horaUsuario < 1) horaUsuario = 12;
-if(horaUsuario > 12) horaUsuario = 1;
-
-actualizarReloj();
-
-}
-
-function cambiarMinuto(valor){
-
-minutoUsuario += valor;
-
-if(minutoUsuario < 0) minutoUsuario = 55;
-if(minutoUsuario > 55) minutoUsuario = 0;
-
-actualizarReloj();
 
 }
 
@@ -445,9 +423,72 @@ document.getElementById("agujaMinuto")
 
 }
 
+reloj.addEventListener("click", function(e){
+
+const rect =
+reloj.getBoundingClientRect();
+
+const cx =
+rect.left + rect.width/2;
+
+const cy =
+rect.top + rect.height/2;
+
+const dx =
+e.clientX - cx;
+
+const dy =
+e.clientY - cy;
+
+const distancia =
+Math.sqrt(dx*dx + dy*dy);
+
+let angulo =
+Math.atan2(dy, dx) * 180 / Math.PI;
+
+angulo += 90;
+
+if(angulo < 0){
+angulo += 360;
+}
+
+/* EXTERIOR = MINUTOS */
+
+if(distancia > 90){
+
+let minuto =
+Math.round(angulo / 30) * 5;
+
+if(minuto === 60){
+minuto = 0;
+}
+
+minutoUsuario = minuto;
+
+}else{
+
+/* INTERIOR = HORAS */
+
+let hora =
+Math.round(angulo / 30);
+
+if(hora === 0){
+hora = 12;
+}
+
+horaUsuario = hora;
+
+}
+
+actualizarReloj();
+
+comprobarHora();
+
+});
+
 function comprobarHora(){
 
-let caja =
+const caja =
 document.getElementById("resultado");
 
 if(
@@ -458,13 +499,16 @@ minutoUsuario === actual.minuto
 caja.classList.remove("incorrecto");
 caja.classList.add("correcto");
 
-caja.innerText = "✔";
+caja.innerText =
+actual.digital;
 
 document.getElementById("horaDigital")
-.innerText = actual.digital;
+.innerText = "";
 
 setTimeout(()=>{
+
 nuevoEjercicio();
+
 },1500);
 
 }else{
@@ -474,21 +518,23 @@ caja.classList.add("incorrecto");
 caja.classList.add("shake");
 
 setTimeout(()=>{
+
 caja.classList.remove("shake");
-},500);
+
+},400);
 
 }
 
 }
 
 nuevoEjercicio();
-  
+
+</script>
+    
 <!-- BOTÓN INICIO -->
 
 <div class="inicio">
     <a href="index.html">🏠</a>
 </div>
-</script>
-
 </body>
 </html>
