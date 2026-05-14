@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Practica la hora</title>
+
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+/* ========================= */
+/* ACTIVIDAD RELOJ */
+/* ========================= */
+
+.reloj-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    margin:50px auto;
+    flex-wrap:wrap;
+}
+
+.reloj{
+    position:relative;
+    width:320px;
+    height:320px;
+    border:10px solid #ddd;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.numero-reloj{
+    position:absolute;
+    width:100%;
+    height:100%;
+    font-size:32px;
+    font-weight:bold;
+    color:black;
+}
+
+.numero-reloj span{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform-origin:center center;
+}
+
+/* POSICIONES */
+
+.n1 span{ transform: rotate(30deg) translateY(-135px) rotate(-30deg);}
+.n2 span{ transform: rotate(60deg) translateY(-135px) rotate(-60deg);}
+.n3 span{ transform: rotate(90deg) translateY(-135px) rotate(-90deg);}
+.n4 span{ transform: rotate(120deg) translateY(-135px) rotate(-120deg);}
+.n5 span{ transform: rotate(150deg) translateY(-135px) rotate(-150deg);}
+.n6 span{ transform: rotate(180deg) translateY(-135px) rotate(-180deg);}
+.n7 span{ transform: rotate(210deg) translateY(-135px) rotate(-210deg);}
+.n8 span{ transform: rotate(240deg) translateY(-135px) rotate(-240deg);}
+.n9 span{ transform: rotate(270deg) translateY(-135px) rotate(-270deg);}
+.n10 span{ transform: rotate(300deg) translateY(-135px) rotate(-300deg);}
+.n11 span{ transform: rotate(330deg) translateY(-135px) rotate(-330deg);}
+.n12 span{ transform: rotate(0deg) translateY(-135px);}
+
+/* AGUJAS */
+
+.aguja{
+    position:absolute;
+    bottom:50%;
+    left:50%;
+    transform-origin:bottom center;
+    transform:translateX(-50%) rotate(0deg);
+    border-radius:10px;
+}
+
+.hora{
+    width:8px;
+    height:85px;
+    background:black;
+    z-index:2;
+}
+
+.minuto{
+    width:5px;
+    height:120px;
+    background:#444;
+    z-index:3;
+}
+
+.centro{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:black;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:4;
+}
+
+/* PANEL DERECHO */
+
+.panel-control{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+}
+
+.caja-resultado{
+    width:160px;
+    height:160px;
+
+    background:#8ecae6;
+
+    border-radius:30px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:55px;
+    font-weight:bold;
+    color:white;
+
+    box-shadow:
+    inset -8px -8px 0 rgba(0,0,0,0.15),
+    inset 5px 5px 0 rgba(255,255,255,0.2);
+
+    transition:0.3s;
+}
+
+.correcto{
+    background:#2ecc71 !important;
+}
+
+.incorrecto{
+    background:#e74c3c !important;
+}
+
+/* BOTONES */
+
+.botones-tiempo{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    max-width:300px;
+}
+
+.boton-tiempo{
+    background:white;
+    color:black;
+    padding:10px 15px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.boton-tiempo:hover{
+    transform:scale(1.05);
+}
+
+.boton-audio{
+    font-size:40px;
+    cursor:pointer;
+}
+
+/* SHAKE */
+
+.shake{
+    animation:shake 0.4s;
+}
+
+@keyframes shake{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-8px);}
+    50%{transform:translateX(8px);}
+    75%{transform:translateX(-8px);}
+    100%{transform:translateX(0);}
+}
+
+/* TEXTO HORA */
+
+.hora-digital{
+    font-size:28px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+/* MÓVIL */
+
+@media(max-width:700px){
+
+.reloj{
+    width:260px;
+    height:260px;
+}
+
+.numero-reloj{
+    font-size:24px;
+}
+
+.n1 span{ transform: rotate(30deg) translateY(-110px) rotate(-30deg);}
+.n2 span{ transform: rotate(60deg) translateY(-110px) rotate(-60deg);}
+.n3 span{ transform: rotate(90deg) translateY(-110px) rotate(-90deg);}
+.n4 span{ transform: rotate(120deg) translateY(-110px) rotate(-120deg);}
+.n5 span{ transform: rotate(150deg) translateY(-110px) rotate(-150deg);}
+.n6 span{ transform: rotate(180deg) translateY(-110px) rotate(-180deg);}
+.n7 span{ transform: rotate(210deg) translateY(-110px) rotate(-210deg);}
+.n8 span{ transform: rotate(240deg) translateY(-110px) rotate(-240deg);}
+.n9 span{ transform: rotate(270deg) translateY(-110px) rotate(-270deg);}
+.n10 span{ transform: rotate(300deg) translateY(-110px) rotate(-300deg);}
+.n11 span{ transform: rotate(330deg) translateY(-110px) rotate(-330deg);}
+.n12 span{ transform: rotate(0deg) translateY(-110px);}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<div class="nav-superior">
+
+<div class="titulo">
+<p class="unidad">Unidad 1</p>
+<h1>🕒 Practica la hora</h1>
+</div>
+
+<div class="nav-botones">
+<a href="vocabulario6.html" class="boton-nav">← Volver</a>
+<a href="vocabulario7.html" class="boton-nav">Siguiente →</a>
+</div>
+
+</div>
+
+<!-- INSTRUCCIÓN -->
+
+<div class="instruccion">
+
+<p>
+Toca la imagen interrogativa, escucha y pon el reloj correctamente.
+</p>
+
+<div class="banderas">
+
+<div class="flag" onclick="playAudio('es')">
+<img src="img/es.png"><span>🔊</span>
+</div>
+
+<div class="flag" onclick="playAudio('en')">
+<img src="img/en.png"><span>🔊</span>
+</div>
+
+<div class="flag" onclick="playAudio('fr')">
+<img src="img/fr.png"><span>🔊</span>
+</div>
+
+<div class="flag" onclick="playAudio('ru')">
+<img src="img/ru.avif"><span>🔊</span>
+</div>
+
+<div class="flag" onclick="playAudio('ar')">
+<img src="img/ar.png"><span>🔊</span>
+</div>
+
+<div class="flag" onclick="playAudio('uc')">
+<img src="img/uc.png"><span>🔊</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- AUDIOS INSTRUCCIÓN -->
+
+<audio id="es" src="audio/instruccion_11_es.mp3"></audio>
+<audio id="en" src="audio/instruccion_11_en.mp3"></audio>
+<audio id="fr" src="audio/instruccion_11_fr.mp3"></audio>
+<audio id="ru" src="audio/instruccion_11_ru.mp3"></audio>
+<audio id="ar" src="audio/instruccion_11_ar.mp3"></audio>
+<audio id="uc" src="audio/instruccion_11_uc.mp3"></audio>
+
+<!-- RELOJ -->
+
+<div class="reloj-container">
+
+<div class="reloj">
+
+<div class="numero-reloj n1"><span>1</span></div>
+<div class="numero-reloj n2"><span>2</span></div>
+<div class="numero-reloj n3"><span>3</span></div>
+<div class="numero-reloj n4"><span>4</span></div>
+<div class="numero-reloj n5"><span>5</span></div>
+<div class="numero-reloj n6"><span>6</span></div>
+<div class="numero-reloj n7"><span>7</span></div>
+<div class="numero-reloj n8"><span>8</span></div>
+<div class="numero-reloj n9"><span>9</span></div>
+<div class="numero-reloj n10"><span>10</span></div>
+<div class="numero-reloj n11"><span>11</span></div>
+<div class="numero-reloj n12"><span>12</span></div>
+
+<div class="aguja hora" id="agujaHora"></div>
+<div class="aguja minuto" id="agujaMinuto"></div>
+<div class="centro"></div>
+
+</div>
+
+<!-- PANEL DERECHO -->
+
+<div class="panel-control">
+
+<div class="caja-resultado" id="resultado">?</div>
+
+<div class="boton-audio" onclick="playCurrentAudio()">🔊</div>
+
+<div class="botones-tiempo">
+
+<div class="boton-tiempo" onclick="cambiarHora(-1)">Hora -</div>
+<div class="boton-tiempo" onclick="cambiarHora(1)">Hora +</div>
+
+<div class="boton-tiempo" onclick="cambiarMinuto(-5)">Min -</div>
+<div class="boton-tiempo" onclick="cambiarMinuto(5)">Min +</div>
+
+</div>
+
+<div class="boton-tiempo" onclick="comprobarHora()">
+Comprobar
+</div>
+
+<div class="hora-digital" id="horaDigital"></div>
+
+</div>
+
+</div>
+
+<!-- AUDIOS -->
+
+<audio id="hora8_1" src="audio/hora8_1.mp3"></audio>
+<audio id="hora8_2" src="audio/hora8_2.mp3"></audio>
+<audio id="hora8_3" src="audio/hora8_3.mp3"></audio>
+<audio id="hora8_4" src="audio/hora8_4.mp3"></audio>
+<audio id="hora8_5" src="audio/hora8_5.mp3"></audio>
+<audio id="hora8_6" src="audio/hora8_6.mp3"></audio>
+<audio id="hora8_7" src="audio/hora8_7.mp3"></audio>
+<audio id="hora8_8" src="audio/hora8_8.mp3"></audio>
+<audio id="hora8_9" src="audio/hora8_9.mp3"></audio>
+<audio id="hora8_10" src="audio/hora8_10.mp3"></audio>
+<audio id="hora8_11" src="audio/hora8_11.mp3"></audio>
+
+<script>
+
+function playAudio(id){
+document.getElementById(id).play();
+}
+
+const ejercicios = [
+
+{audio:"hora8_1", hora:1, minuto:0, digital:"01:00"},
+{audio:"hora8_2", hora:2, minuto:0, digital:"02:00"},
+{audio:"hora8_3", hora:12, minuto:0, digital:"12:00"},
+{audio:"hora8_4", hora:3, minuto:30, digital:"03:30"},
+{audio:"hora8_5", hora:3, minuto:45, digital:"03:45"},
+{audio:"hora8_6", hora:11, minuto:50, digital:"11:50"},
+{audio:"hora8_7", hora:11, minuto:30, digital:"11:30"},
+{audio:"hora8_8", hora:2, minuto:30, digital:"02:30"},
+{audio:"hora8_9", hora:12, minuto:30, digital:"12:30"},
+{audio:"hora8_10", hora:9, minuto:50, digital:"09:50"},
+{audio:"hora8_11", hora:4, minuto:45, digital:"04:45"}
+
+];
+
+let actual;
+let horaUsuario = 12;
+let minutoUsuario = 0;
+
+function nuevoEjercicio(){
+
+actual =
+ejercicios[Math.floor(Math.random()*ejercicios.length)];
+
+horaUsuario = 12;
+minutoUsuario = 0;
+
+actualizarReloj();
+
+document.getElementById("resultado").innerText = "?";
+document.getElementById("resultado").className = "caja-resultado";
+
+document.getElementById("horaDigital").innerText = "";
+
+}
+
+function playCurrentAudio(){
+document.getElementById(actual.audio).play();
+}
+
+function cambiarHora(valor){
+
+horaUsuario += valor;
+
+if(horaUsuario < 1) horaUsuario = 12;
+if(horaUsuario > 12) horaUsuario = 1;
+
+actualizarReloj();
+
+}
+
+function cambiarMinuto(valor){
+
+minutoUsuario += valor;
+
+if(minutoUsuario < 0) minutoUsuario = 55;
+if(minutoUsuario > 55) minutoUsuario = 0;
+
+actualizarReloj();
+
+}
+
+function actualizarReloj(){
+
+let horaDeg =
+(horaUsuario * 30) + (minutoUsuario * 0.5);
+
+let minutoDeg =
+minutoUsuario * 6;
+
+document.getElementById("agujaHora")
+.style.transform =
+`translateX(-50%) rotate(${horaDeg}deg)`;
+
+document.getElementById("agujaMinuto")
+.style.transform =
+`translateX(-50%) rotate(${minutoDeg}deg)`;
+
+}
+
+function comprobarHora(){
+
+let caja =
+document.getElementById("resultado");
+
+if(
+horaUsuario === actual.hora &&
+minutoUsuario === actual.minuto
+){
+
+caja.classList.remove("incorrecto");
+caja.classList.add("correcto");
+
+caja.innerText = "✔";
+
+document.getElementById("horaDigital")
+.innerText = actual.digital;
+
+setTimeout(()=>{
+nuevoEjercicio();
+},1500);
+
+}else{
+
+caja.classList.remove("correcto");
+caja.classList.add("incorrecto");
+caja.classList.add("shake");
+
+setTimeout(()=>{
+caja.classList.remove("shake");
+},500);
+
+}
+
+}
+
+nuevoEjercicio();
+  
+<!-- BOTÓN INICIO -->
+
+<div class="inicio">
+    <a href="index.html">🏠</a>
+</div>
+</script>
+
+</body>
+</html>
