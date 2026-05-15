@@ -35,6 +35,9 @@
     border-radius:50%;
     background:white;
     box-shadow:0 0 20px rgba(0,0,0,0.2);
+
+    user-select:none;
+    -webkit-user-select:none;
 }
 
 .numero-reloj{
@@ -55,18 +58,18 @@
 
 /* POSICIONES */
 
-.n1 span{ transform: rotate(30deg) translateY(-135px) rotate(-30deg);}
-.n2 span{ transform: rotate(60deg) translateY(-135px) rotate(-60deg);}
-.n3 span{ transform: rotate(90deg) translateY(-135px) rotate(-90deg);}
-.n4 span{ transform: rotate(120deg) translateY(-135px) rotate(-120deg);}
-.n5 span{ transform: rotate(150deg) translateY(-135px) rotate(-150deg);}
-.n6 span{ transform: rotate(180deg) translateY(-135px) rotate(-180deg);}
-.n7 span{ transform: rotate(210deg) translateY(-135px) rotate(-210deg);}
-.n8 span{ transform: rotate(240deg) translateY(-135px) rotate(-240deg);}
-.n9 span{ transform: rotate(270deg) translateY(-135px) rotate(-270deg);}
-.n10 span{ transform: rotate(300deg) translateY(-135px) rotate(-300deg);}
-.n11 span{ transform: rotate(330deg) translateY(-135px) rotate(-330deg);}
-.n12 span{ transform: rotate(0deg) translateY(-135px);}
+.n1 span{ transform: rotate(30deg) translate(0,-135px) rotate(-30deg);}
+.n2 span{ transform: rotate(60deg) translate(0,-135px) rotate(-60deg);}
+.n3 span{ transform: rotate(90deg) translate(0,-135px) rotate(-90deg);}
+.n4 span{ transform: rotate(120deg) translate(0,-135px) rotate(-120deg);}
+.n5 span{ transform: rotate(150deg) translate(0,-135px) rotate(-150deg);}
+.n6 span{ transform: rotate(180deg) translate(0,-135px) rotate(-180deg);}
+.n7 span{ transform: rotate(210deg) translate(0,-135px) rotate(-210deg);}
+.n8 span{ transform: rotate(240deg) translate(0,-135px) rotate(-240deg);}
+.n9 span{ transform: rotate(270deg) translate(0,-135px) rotate(-270deg);}
+.n10 span{ transform: rotate(300deg) translate(0,-135px) rotate(-300deg);}
+.n11 span{ transform: rotate(330deg) translate(0,-135px) rotate(-330deg);}
+.n12 span{ transform: translate(0,-135px);}
 
 /* AGUJAS */
 
@@ -76,33 +79,62 @@
     left:50%;
     transform-origin:bottom center;
     transform:translateX(-50%) rotate(0deg);
-    border-radius:10px;
+    border-radius:20px;
+    z-index:5;
+    touch-action:none;
 }
+
+/* HORA */
 
 .hora{
-    width:8px;
+    width:10px;
     height:85px;
-    background:black;
-    z-index:2;
+    background:#2563eb;
 }
 
+/* MINUTO */
+
 .minuto{
-    width:5px;
-    height:120px;
-    background:#444;
-    z-index:3;
+    width:6px;
+    height:125px;
+    background:#ef4444;
 }
+
+/* BOLITAS */
+
+.punta{
+    position:absolute;
+    top:-10px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.hora-punta{
+    width:20px;
+    height:20px;
+    background:#2563eb;
+}
+
+.minuto-punta{
+    width:16px;
+    height:16px;
+    background:#ef4444;
+}
+
+/* CENTRO */
 
 .centro{
     position:absolute;
-    width:20px;
-    height:20px;
+    width:22px;
+    height:22px;
     background:black;
     border-radius:50%;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    z-index:4;
+    z-index:10;
 }
 
 /* PANEL DERECHO */
@@ -145,34 +177,6 @@
     background:#e74c3c !important;
 }
 
-/* BOTONES */
-
-.botones-tiempo{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:center;
-    max-width:300px;
-}
-
-.boton-tiempo{
-    background:white;
-    color:black;
-    padding:10px 15px;
-    border-radius:12px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.2s;
-}
-
-.boton-tiempo:hover{
-    transform:scale(1.05);
-}
-
-.boton-audio{
-    font-size:40px;
-    cursor:pointer;
-}
 
 /* SHAKE */
 
@@ -181,11 +185,12 @@
 }
 
 @keyframes shake{
-    0%{transform:translateX(0);}
-    25%{transform:translateX(-8px);}
-    50%{transform:translateX(8px);}
-    75%{transform:translateX(-8px);}
-    100%{transform:translateX(0);}
+    0%{ transform:translateX(0); }
+    20%{ transform:translateX(-8px); }
+    40%{ transform:translateX(8px); }
+    60%{ transform:translateX(-8px); }
+    80%{ transform:translateX(8px); }
+    100%{ transform:translateX(0); }
 }
 
 /* TEXTO HORA */
@@ -209,18 +214,18 @@
     font-size:24px;
 }
 
-.n1 span{ transform: rotate(30deg) translateY(-110px) rotate(-30deg);}
-.n2 span{ transform: rotate(60deg) translateY(-110px) rotate(-60deg);}
-.n3 span{ transform: rotate(90deg) translateY(-110px) rotate(-90deg);}
-.n4 span{ transform: rotate(120deg) translateY(-110px) rotate(-120deg);}
-.n5 span{ transform: rotate(150deg) translateY(-110px) rotate(-150deg);}
-.n6 span{ transform: rotate(180deg) translateY(-110px) rotate(-180deg);}
-.n7 span{ transform: rotate(210deg) translateY(-110px) rotate(-210deg);}
-.n8 span{ transform: rotate(240deg) translateY(-110px) rotate(-240deg);}
-.n9 span{ transform: rotate(270deg) translateY(-110px) rotate(-270deg);}
-.n10 span{ transform: rotate(300deg) translateY(-110px) rotate(-300deg);}
-.n11 span{ transform: rotate(330deg) translateY(-110px) rotate(-330deg);}
-.n12 span{ transform: rotate(0deg) translateY(-110px);}
+.n1 span{ transform: rotate(30deg) translate(0,-110px) rotate(-30deg);}
+.n2 span{ transform: rotate(60deg) translate(0,-110px) rotate(-60deg);}
+.n3 span{ transform: rotate(90deg) translate(0,-110px) rotate(-90deg);}
+.n4 span{ transform: rotate(120deg) translate(0,-110px) rotate(-120deg);}
+.n5 span{ transform: rotate(150deg) translate(0,-110px) rotate(-150deg);}
+.n6 span{ transform: rotate(180deg) translate(0,-110px) rotate(-180deg);}
+.n7 span{ transform: rotate(210deg) translate(0,-110px) rotate(-210deg);}
+.n8 span{ transform: rotate(240deg) translate(0,-110px) rotate(-240deg);}
+.n9 span{ transform: rotate(270deg) translate(0,-110px) rotate(-270deg);}
+.n10 span{ transform: rotate(300deg) translate(0,-110px) rotate(-300deg);}
+.n11 span{ transform: rotate(330deg) translate(0,-110px) rotate(-330deg);}
+.n12 span{ transform: translate(0,-110px);}
 
 }
 
@@ -312,8 +317,13 @@ Toca la imagen interrogativa, escucha y pon el reloj correctamente.
 <div class="numero-reloj n11"><span>11</span></div>
 <div class="numero-reloj n12"><span>12</span></div>
 
-<div class="aguja hora" id="agujaHora"></div>
-<div class="aguja minuto" id="agujaMinuto"></div>
+<div class="aguja hora" id="agujaHora">
+    <div class="punta hora-punta"></div>
+</div>
+
+<div class="aguja minuto" id="agujaMinuto">
+    <div class="punta minuto-punta"></div>
+</div>
 
 <div class="centro"></div>
 
@@ -371,6 +381,7 @@ const ejercicios = [
 ];
 
 let actual;
+let anterior = null;
 
 let horaUsuario = 12;
 let minutoUsuario = 0;
@@ -378,10 +389,145 @@ let minutoUsuario = 0;
 const reloj =
 document.getElementById("reloj");
 
+let arrastrando = null;
+
+/* DRAG AGUJAS */
+
+document.getElementById("agujaHora")
+.addEventListener("mousedown", ()=>{
+
+arrastrando = "hora";
+
+});
+
+document.getElementById("agujaMinuto")
+.addEventListener("mousedown", ()=>{
+
+arrastrando = "minuto";
+
+});
+
+document.addEventListener("mouseup", ()=>{
+
+arrastrando = null;
+
+});
+
+/* TOUCH */
+
+document.getElementById("agujaHora")
+.addEventListener("touchstart", (e)=>{
+e.preventDefault();
+arrastrando = "hora";
+
+});
+
+document.getElementById("agujaMinuto")
+.addEventListener("touchstart", (e)=>{
+e.preventDefault();
+arrastrando = "minuto";
+
+});
+
+document.addEventListener("touchend", ()=>{
+
+arrastrando = null;
+
+});
+
+/* MOVIMIENTO */
+
+reloj.addEventListener("mousemove", moverAguja);
+
+reloj.addEventListener("touchmove", moverAgujaTouch);
+
+function moverAgujaTouch(e){
+
+if(!arrastrando) return;
+
+e.preventDefault();    
+    
+const touch = e.touches[0];
+
+mover(touch.clientX, touch.clientY);
+
+}
+
+function moverAguja(e){
+
+if(!arrastrando) return;
+
+mover(e.clientX, e.clientY);
+
+}
+
+function mover(x,y){
+
+const rect =
+reloj.getBoundingClientRect();
+
+const cx =
+rect.left + rect.width/2;
+
+const cy =
+rect.top + rect.height/2;
+
+const dx = x - cx;
+const dy = y - cy;
+
+let angulo =
+Math.atan2(dy, dx) * 180 / Math.PI;
+
+angulo += 90;
+
+if(angulo < 0){
+angulo += 360;
+}
+
+/* MINUTOS */
+
+if(arrastrando === "minuto"){
+
+let minuto =
+Math.round(angulo / 30) * 5;
+
+if(minuto >= 60){
+minuto = 0;
+}
+
+minutoUsuario = minuto;
+
+/* HORAS */
+
+}else{
+
+let hora =
+Math.round(angulo / 30);
+
+if(hora === 0){
+hora = 12;
+}
+
+horaUsuario = hora;
+
+}
+
+actualizarReloj();
+
+comprobarHora();
+
+}    
+    
 function nuevoEjercicio(){
+
+do{
 
 actual =
 ejercicios[Math.floor(Math.random()*ejercicios.length)];
+
+}while(actual === anterior);
+
+anterior = actual;
 
 horaUsuario = 12;
 minutoUsuario = 0;
@@ -423,68 +569,7 @@ document.getElementById("agujaMinuto")
 
 }
 
-reloj.addEventListener("click", function(e){
 
-const rect =
-reloj.getBoundingClientRect();
-
-const cx =
-rect.left + rect.width/2;
-
-const cy =
-rect.top + rect.height/2;
-
-const dx =
-e.clientX - cx;
-
-const dy =
-e.clientY - cy;
-
-const distancia =
-Math.sqrt(dx*dx + dy*dy);
-
-let angulo =
-Math.atan2(dy, dx) * 180 / Math.PI;
-
-angulo += 90;
-
-if(angulo < 0){
-angulo += 360;
-}
-
-/* EXTERIOR = MINUTOS */
-
-if(distancia > 90){
-
-let minuto =
-Math.round(angulo / 30) * 5;
-
-if(minuto === 60){
-minuto = 0;
-}
-
-minutoUsuario = minuto;
-
-}else{
-
-/* INTERIOR = HORAS */
-
-let hora =
-Math.round(angulo / 30);
-
-if(hora === 0){
-hora = 12;
-}
-
-horaUsuario = hora;
-
-}
-
-actualizarReloj();
-
-comprobarHora();
-
-});
 
 function comprobarHora(){
 
@@ -520,7 +605,8 @@ caja.classList.add("shake");
 setTimeout(()=>{
 
 caja.classList.remove("shake");
-
+caja.classList.remove("incorrecto");
+    
 },400);
 
 }
