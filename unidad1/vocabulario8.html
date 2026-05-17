@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nacionalidades</title>
+
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+/* ========================= */
+/* IMAGEN EXPLICACIÓN */
+/* ========================= */
+
+.explicacion-img{
+    width:100%;
+    max-width:900px;
+    display:block;
+    margin:30px auto;
+    border-radius:25px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.explicacion-img:hover{
+    transform:scale(1.01);
+}
+
+/* ========================= */
+/* MAPA INTERACTIVO */
+/* ========================= */
+
+.mapa-container{
+    position:relative;
+    width:100%;
+    max-width:1300px;
+    margin:40px auto;
+}
+
+.mapa-img{
+    width:100%;
+    display:block;
+    border-radius:25px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* ZONAS CLICKEABLES */
+
+.zona{
+    position:absolute;
+    cursor:pointer;
+    border-radius:12px;
+    transition:0.2s;
+}
+
+/* HOVER */
+
+.zona:hover{
+    background:rgba(255,255,255,0.15);
+    box-shadow:0 0 15px rgba(255,255,255,0.6);
+}
+
+/* AUDIO ACTIVO */
+
+.zona.activa{
+    background:rgba(255,255,255,0.2);
+    box-shadow:
+    0 0 20px rgba(255,255,255,0.9),
+    0 0 40px rgba(255,255,255,0.6);
+
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.03);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* ========================= */
+/* MÓVIL */
+/* ========================= */
+
+@media(max-width:700px){
+
+.mapa-container{
+    border-radius:15px;
+    overflow:hidden;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav-superior">
+
+    <div class="titulo">
+        <p class="unidad">Unidad 1</p>
+        <h1>🌍 Nacionalidades</h1>
+    </div>
+
+    <div class="nav-botones">
+        <a href="vocabulario7.html" class="boton-nav">← Volver</a>
+        <a href="actividad6.html" class="boton-nav">Siguiente →</a>
+    </div>
+
+</div>
+
+<!-- INSTRUCCIÓN -->
+<div class="instruccion">
+
+<p>
+Toca las imágenes, escucha y repite.
+</p>
+
+<!-- BANDERAS GENERALES -->
+<div class="banderas">
+
+    <div class="flag" onclick="playAudio('es')">
+        <img src="img/es.png">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('en')">
+        <img src="img/en.png">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('fr')">
+        <img src="img/fr.png">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('ru')">
+        <img src="img/ru.avif">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('ar')">
+        <img src="img/ar.png">
+        <span>🔊</span>
+    </div>
+
+    <div class="flag" onclick="playAudio('uc')">
+        <img src="img/uc.png">
+        <span>🔊</span>
+    </div>
+
+</div>
+
+</div>
+
+<!-- AUDIOS INSTRUCCIÓN -->
+
+<audio id="es" src="audio/nacionalidad1_es.mp3"></audio>
+<audio id="en" src="audio/nacionalidad1_en.mp3"></audio>
+<audio id="fr" src="audio/nacionalidad1_fr.mp3"></audio>
+<audio id="ru" src="audio/nacionalidad1_ru.mp3"></audio>
+<audio id="ar" src="audio/nacionalidad1_ar.mp3"></audio>
+<audio id="uc" src="audio/nacionalidad1_uc.mp3"></audio>
+
+<!-- ========================= -->
+<!-- EXPLICACIÓN -->
+<!-- ========================= -->
+
+<img
+src="img/nacionalidad1.png"
+class="explicacion-img"
+onclick="toggleAudio('nacionalidad1')">
+
+<audio id="nacionalidad1" src="audio/nacionalidad1.mp3"></audio>
+
+<!-- ========================= -->
+<!-- MAPA INTERACTIVO -->
+<!-- ========================= -->
+
+<div class="mapa-container">
+
+<img
+src="img/nacionalidad2.png"
+class="mapa-img">
+
+<!-- FILA 1 -->
+<div class="zona"
+style="top:10%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_1', this)">
+</div>
+
+<!-- FILA 2 -->
+<div class="zona"
+style="top:18%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_2', this)">
+</div>
+
+<!-- FILA 3 -->
+<div class="zona"
+style="top:27%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_3', this)">
+</div>
+
+<!-- FILA 4 -->
+<div class="zona"
+style="top:36%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_4', this)">
+</div>
+
+<!-- FILA 5 -->
+<div class="zona"
+style="top:45%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_5', this)">
+</div>
+
+<!-- FILA 6 -->
+<div class="zona"
+style="top:54%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_6', this)">
+</div>
+
+<!-- FILA 7 -->
+<div class="zona"
+style="top:63%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_7', this)">
+</div>
+
+<!-- FILA 8 -->
+<div class="zona"
+style="top:72%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_8', this)">
+</div>
+
+<!-- FILA 9 -->
+<div class="zona"
+style="top:81%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_9', this)">
+</div>
+
+<!-- FILA 10 -->
+<div class="zona"
+style="top:90%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_10', this)">
+</div>
+
+<!-- FILA 11 -->
+<div class="zona"
+style="top:99%; left:2%; width:8%; height:7%;"
+onclick="playZona('nacionalidad1_11', this)">
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- AUDIOS NACIONALIDADES -->
+<!-- ========================= -->
+
+<audio id="nacionalidad1_1" src="audio/nacionalidad1_1.mp3"></audio>
+<audio id="nacionalidad1_2" src="audio/nacionalidad1_2.mp3"></audio>
+<audio id="nacionalidad1_3" src="audio/nacionalidad1_3.mp3"></audio>
+<audio id="nacionalidad1_4" src="audio/nacionalidad1_4.mp3"></audio>
+<audio id="nacionalidad1_5" src="audio/nacionalidad1_5.mp3"></audio>
+<audio id="nacionalidad1_6" src="audio/nacionalidad1_6.mp3"></audio>
+<audio id="nacionalidad1_7" src="audio/nacionalidad1_7.mp3"></audio>
+<audio id="nacionalidad1_8" src="audio/nacionalidad1_8.mp3"></audio>
+<audio id="nacionalidad1_9" src="audio/nacionalidad1_9.mp3"></audio>
+<audio id="nacionalidad1_10" src="audio/nacionalidad1_10.mp3"></audio>
+<audio id="nacionalidad1_11" src="audio/nacionalidad1_11.mp3"></audio>
+
+<!-- BOTÓN INICIO -->
+<div class="inicio">
+    <a href="index.html">🏠</a>
+</div>
+
+<script>
+
+/* ========================= */
+/* AUDIO SIMPLE */
+/* ========================= */
+
+function playAudio(id){
+
+document.getElementById(id).currentTime = 0;
+document.getElementById(id).play();
+
+}
+
+/* ========================= */
+/* TOGGLE EXPLICACIÓN */
+/* ========================= */
+
+function toggleAudio(id){
+
+const audio = document.getElementById(id);
+
+if(!audio.paused){
+
+audio.pause();
+audio.currentTime = 0;
+
+}else{
+
+audio.currentTime = 0;
+audio.play();
+
+}
+
+}
+
+/* ========================= */
+/* ZONAS INTERACTIVAS */
+/* ========================= */
+
+let audioActual = null;
+let zonaActual = null;
+
+function playZona(id, elemento){
+
+const audio =
+document.getElementById(id);
+
+/* SI ES EL MISMO AUDIO */
+
+if(audioActual === audio && !audio.paused){
+
+audio.pause();
+audio.currentTime = 0;
+
+elemento.classList.remove("activa");
+
+audioActual = null;
+zonaActual = null;
+
+return;
+
+}
+
+/* PARAR AUDIO ANTERIOR */
+
+if(audioActual){
+
+audioActual.pause();
+audioActual.currentTime = 0;
+
+}
+
+if(zonaActual){
+
+zonaActual.classList.remove("activa");
+
+}
+
+/* NUEVO AUDIO */
+
+audio.currentTime = 0;
+audio.play();
+
+elemento.classList.add("activa");
+
+audioActual = audio;
+zonaActual = elemento;
+
+/* QUITAR EFECTO AL TERMINAR */
+
+audio.onended = ()=>{
+
+elemento.classList.remove("activa");
+
+audioActual = null;
+zonaActual = null;
+
+};
+
+}
+
+</script>
+
+</body>
+</html>
